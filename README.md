@@ -14,20 +14,20 @@ a inteção desse commit se destaca por evidenciar a geração de telas e criaç
 ## Telas
 
 # activity_splash
-    esta é apenas uma tela simples de carregamento na qual dura 2 segundos e meio para que tenha uma leve transição para o usuário do momento em que entra no aplicativo.
-    ![Splash]([screenshots/splash.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/splash.png))
+esta é apenas uma tela simples de carregamento na qual dura 2 segundos e meio para que tenha uma leve transição para o usuário do momento em que entra no aplicativo.
+![Splash]([screenshots/splash.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/splash.png))
 
 # activity_login
-    esta é a tela de login na qual o usuário deverá entrar com seu e-mail e senha os dados inseridos devem ser enviados para a API já citada neste README e então ela dará a permissão para entrar caso o usuário não tenha um aconta ele poderá ser redirecionado para a tela de cadastro.
-    ![Login]([screenshots/login.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/login.png))
+esta é a tela de login na qual o usuário deverá entrar com seu e-mail e senha os dados inseridos devem ser enviados para a API já citada neste README e então ela dará a permissão para entrar caso o usuário não tenha um aconta ele poderá ser redirecionado para a tela de cadastro.
+![Login]([screenshots/login.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/login.png))
 
 # activity_register
-    já esta é a tela de cadastro para os usuário que ainda não passuem uma conta cadastrada no sistema do app no caso a API que segue com a mesma dinâmica da tela de login após esse momento o usuário é direcionado para as demais telas no momento a home.
-    ![Registro]([screenshots/register.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/register.png))
+já esta é a tela de cadastro para os usuário que ainda não passuem uma conta cadastrada no sistema do app no caso a API que segue com a mesma dinâmica da tela de login após esse momento o usuário é direcionado para as demais telas no momento a home.
+![Registro]([screenshots/register.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/register.png))
 
 # activity_home
-    está é uma tela onde todo usuário já logado ou momentos antes criado a conta chega, aqui ele terá todos os recursos para suas atividades financeiras.
-    ![Home]([screenshots/home.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/home.png))
+está é uma tela onde todo usuário já logado ou momentos antes criado a conta chega, aqui ele terá todos os recursos para suas atividades financeiras.
+![Home]([screenshots/home.png](https://raw.githubusercontent.com/GustavoSousa-coder/Bank-Challenge-Android-Kotlin/refs/heads/main/screenshots/home.png))
 
 ## Tecnologias
 
