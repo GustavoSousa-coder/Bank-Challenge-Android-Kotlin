@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastro"
+        android:textSize="24sp"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/editNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nome"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editCpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cpf"
+        android:inputType="text"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/editDataNascimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/data_nascimento"
+        android:inputType="date"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/editEmailRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/editSenhaRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmar"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>
