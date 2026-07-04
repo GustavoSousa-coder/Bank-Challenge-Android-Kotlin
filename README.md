@@ -10,7 +10,7 @@ Cliente mobile do sistema bancário desenvolvido como projeto pessoal de portfó
 
 aqui neste ponto temos uma nova estrutura onde temos representação de dados para que possam se encaixar com os dados da API já citada, além da pasta network onde traz os metodos e endpoints que vão se conectar com os mesmos da API a estrutura segue com Enum para tipos de dados, e a primeira estrutura de dados Client & Account, logo mais terá outros dados com o mesmo modelo da API.
 
-
+```
 │   ├── data/
 │   │   ├── account/
 │   │   │   ├── dto/
@@ -62,7 +62,7 @@ aqui neste ponto temos uma nova estrutura onde temos representação de dados pa
 │   ├── values/
 │   ├── values-night/
 │   └── xml/
-
+```
 
 ## Telas atuais
 
