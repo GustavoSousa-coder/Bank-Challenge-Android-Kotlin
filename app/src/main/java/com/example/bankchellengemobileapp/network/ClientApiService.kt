@@ -19,7 +19,7 @@ interface ClientApiService {
     suspend fun getById(@Path("uuid") uuid: UUID): Response<ClientResponseDTO>
 
     @POST("/api/v1/client")
-    suspend fun save(@Body request: ClientRequestDTO): ClientResponseDTO
+    suspend fun save(@Body request: ClientRequestDTO): Response<ClientResponseDTO>
 
     @DELETE("/api/v1/client/{uuid}")
     suspend fun delete(@Path("uuid") uuid: UUID): Response<Unit>

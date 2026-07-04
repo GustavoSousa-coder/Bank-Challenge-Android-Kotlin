@@ -19,8 +19,8 @@ interface AccountApiService {
     suspend fun getById(@Path("uuid") uuid: UUID): Response<AccountResponseDTO>
 
     @POST("/api/v1/account/{clientUuid}")
-    suspend fun save(@Path("clientUuid")clientUuid: UUID, @Body request: AccountRequestDTO)
+    suspend fun save(@Path("clientUuid")clientUuid: UUID, @Body request: AccountRequestDTO): Response<AccountResponseDTO>
 
     @DELETE("/api/v1/account/{uuid}")
-    suspend fun delete(@Path("uuid") uuid: UUID): Unit
+    suspend fun delete(@Path("uuid") uuid: UUID): Response<Unit>
 }
