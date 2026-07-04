@@ -8,8 +8,7 @@ Cliente mobile do sistema bancário desenvolvido como projeto pessoal de portfó
 
 ## Estado Atual do Projeto
 
-neste momento o projeto segue com telas simples apenas com layout simples organizado em activitys e códigos de cada tela,
-a inteção desse commit se destaca por evidenciar a geração de telas e criação dos layouts básicos para seguir para a arquitetura de estrutura complexa para que o projeto siga sem falhas.
+aqui neste ponto temos uma nova estrutura onde temos representação de dados para que possam se encaixar com os dados da API já citada, além da pasta network onde traz os metodos e endpoints que vão se conectar com os mesmos da API a estrutura segue com Enum para tipos de dados, e a primeira estrutura de dados Client & Account, logo mais terá outros dados com o mesmo modelo da API.
 
 ## Telas
 
