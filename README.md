@@ -10,7 +10,61 @@ Cliente mobile do sistema bancário desenvolvido como projeto pessoal de portfó
 
 aqui neste ponto temos uma nova estrutura onde temos representação de dados para que possam se encaixar com os dados da API já citada, além da pasta network onde traz os metodos e endpoints que vão se conectar com os mesmos da API a estrutura segue com Enum para tipos de dados, e a primeira estrutura de dados Client & Account, logo mais terá outros dados com o mesmo modelo da API.
 
-## Telas
+
+│   ├── data/
+│   │   ├── account/
+│   │   │   ├── dto/
+│   │   │   │   ├── AccountRequestDTO.kt
+│   │   │   │   └── AccountResponseDTO.kt
+│   │   │   └── model/
+│   │   │       └── Account.kt
+│   │   ├── client/
+│   │   │   ├── dto/
+│   │   │   │   ├── AuthenticationRequestDTO.kt
+│   │   │   │   ├── AuthenticationResponseDTO.kt
+│   │   │   │   ├── ClientRequestDTO.kt
+│   │   │   │   └── ClientResponseDTO.kt
+│   │   │   └── model/
+│   │   │       └── Client.kt
+│   │   ├── enums/
+│   │   │   ├── AccountStatus.kt
+│   │   │   ├── AccountType.kt
+│   │   │   ├── ClientRoles.kt
+│   │   │   └── ClientStatus.kt
+│   │   └── network/
+│   │       ├── AccountApiService.kt
+│   │       ├── ClientApiService.kt
+│   │       └── ClientLoginApiService.kt
+│   └── ui/
+│       ├── home/
+│       │   └── HomeActivity.kt
+│       ├── login/
+│       │   └── LoginActivity.kt
+│       ├── register/
+│       │   └── RegisterActivity.kt
+│       └── splash/
+│           └── SplashActivity.kt
+├── res/
+│   ├── drawable/
+│   ├── layout/
+│   │   ├── activity_home.xml
+│   │   ├── activity_login.xml
+│   │   ├── activity_register.xml
+│   │   ├── activity_splash.xml
+│   │   └── nav_header.xml
+│   ├── menu/
+│   ├── mipmap-anydpi-v26/
+│   ├── mipmap-hdpi/
+│   ├── mipmap-mdpi/
+│   ├── mipmap-xhdpi/
+│   ├── mipmap-xxhdpi/
+│   ├── mipmap-xxxhdpi/
+│   ├── values/
+│   ├── values-night/
+│   └── xml/
+
+
+## Telas atuais
 
 # activity_splash
 esta é apenas uma tela simples de carregamento na qual dura 2 segundos e meio para que tenha uma leve transição para o usuário do momento em que entra no aplicativo.
