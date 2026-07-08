@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/configurar_conta_titulo"
+        android:textSize="24sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/configurar_conta_subtitulo"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupTipoConta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioCorrente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/conta_corrente"
+            android:textSize="18sp"
+            android:padding="12dp" />
+
+        <RadioButton
+            android:id="@+id/radioPoupanca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/conta_poupanca"
+            android:textSize="18sp"
+            android:padding="12dp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConfirmarConta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmar"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

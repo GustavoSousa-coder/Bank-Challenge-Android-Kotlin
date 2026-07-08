@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/data_nascimento"
-        android:inputType="date"
+        android:inputType="number"
+        android:maxLength="10"
         android:layout_marginTop="12dp" />
 
     <EditText

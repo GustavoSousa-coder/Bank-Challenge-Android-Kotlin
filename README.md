@@ -4,28 +4,56 @@ Aplicativo Android desenvolvido em Kotlin para consumir a [Bank Transaction API]
 
 ## Sobre o Projeto
 
-Cliente mobile do sistema bancário desenvolvido como projeto pessoal de portfólio. O app permite que clientes realizem operações bancárias como login, visualização de contas, transferências via Pix e acompanhamento de estatísticas de transações.
+## Integração com a API
+
+Esta versão adiciona a comunicação completa entre o aplicativo e a API 
+backend, cobrindo os primeiros passos da jornada do usuário: cadastro, 
+configuração de conta e login.
+
+### O que foi implementado
+
+- **Cadastro de cliente**: o usuário preenche seus dados (nome, CPF, 
+  data de nascimento, e-mail e senha), que são enviados para a API e 
+  validados no servidor.
+
+- **Configuração de conta**: logo após o cadastro, o usuário escolhe 
+  o tipo de conta (Corrente ou Poupança), que é então criada e 
+  vinculada ao seu cadastro.
+
+- **Login e autenticação**: o usuário acessa o app com e-mail e senha. 
+  A API retorna um token JWT, que o aplicativo passa a anexar 
+  automaticamente em todas as requisições seguintes — liberando o 
+  acesso à tela Home.
+
+### Como funciona por baixo dos panos
+
+Toda a comunicação entre app e API acontece via **HTTP**, usando 
+**DTOs** (Data Transfer Objects) — estruturas que representam 
+exatamente os dados trocados em cada requisição e resposta, mantendo 
+o app e a API sempre alinhados quanto ao formato da informação.
+
+A tela **Home** já está preparada para receber as próximas 
+funcionalidades do app (saldo, transações, Pix, transferências), que 
+serão adicionadas nas próximas versões.
 
 ## Estado Atual do Projeto
 
-aqui neste ponto temos uma nova estrutura onde temos representação de dados para que possam se encaixar com os dados da API já citada, além da pasta network onde traz os metodos e endpoints que vão se conectar com os mesmos da API a estrutura segue com Enum para tipos de dados, e a primeira estrutura de dados Client & Account, logo mais terá outros dados com o mesmo modelo da API.
+
 
 ```
 │   ├── data/
 │   │   ├── account/
 │   │   │   ├── dto/
-│   │   │   │   ├── AccountRequestDTO.kt
-│   │   │   │   └── AccountResponseDTO.kt
-│   │   │   └── model/
-│   │   │       └── Account.kt
+│   │   │       ├── AccountRequestDTO.kt
+│   │   │       └── AccountResponseDTO.kt
+│   │   │   
 │   │   ├── client/
 │   │   │   ├── dto/
-│   │   │   │   ├── AuthenticationRequestDTO.kt
-│   │   │   │   ├── AuthenticationResponseDTO.kt
-│   │   │   │   ├── ClientRequestDTO.kt
-│   │   │   │   └── ClientResponseDTO.kt
-│   │   │   └── model/
-│   │   │       └── Client.kt
+│   │   │       ├── AuthenticationRequestDTO.kt
+│   │   │       ├── AuthenticationResponseDTO.kt
+│   │   │       ├── ClientRequestDTO.kt
+│   │   │       └── ClientResponseDTO.kt
+│   │   │   
 │   │   ├── enums/
 │   │   │   ├── AccountStatus.kt
 │   │   │   ├── AccountType.kt
@@ -35,18 +63,24 @@ aqui neste ponto temos uma nova estrutura onde temos representação de dados pa
 │   │       ├── AccountApiService.kt
 │   │       ├── ClientApiService.kt
 │   │       └── ClientLoginApiService.kt
+|   |       └── OnboardingManager.kt
+|   |       └── RetrofitClient.kt
+|   |       └── TokenManager.kt
 │   └── ui/
 │       ├── home/
 │       │   └── HomeActivity.kt
 │       ├── login/
 │       │   └── LoginActivity.kt
 │       ├── register/
+|       |   |__ AccountSetupManager.kt
+|       |   |
 │       │   └── RegisterActivity.kt
 │       └── splash/
 │           └── SplashActivity.kt
 ├── res/
 │   ├── drawable/
 │   ├── layout/
+|   |   ├── activity_account_setup.xml
 │   │   ├── activity_home.xml
 │   │   ├── activity_login.xml
 │   │   ├── activity_register.xml
@@ -85,9 +119,15 @@ já esta é a tela de cadastro para os usuário que ainda não passuem uma conta
 
 
 # activity_home
-está é uma tela onde todo usuário já logado ou momentos antes criado a conta chega, aqui ele terá todos os recursos para suas atividades financeiras.
+esta é uma tela onde todo usuário já logado ou momentos antes criado a conta chega, aqui ele terá todos os recursos para suas atividades financeiras.
 
 <img width="277" height="597" alt="home" src="https://github.com/user-attachments/assets/5a63673d-60a6-440a-bd53-b24ffe783492" />
+
+# activity_home
+esta é uma tela de configuração da conta, é essencial para que o app possa carregar o id do usuário que é requisitado para gerar o relacionamento entre cliente e conta onde é aproveitado durante a criação do cliente 
+
+<img width="277" height="590" alt="home" src="https://i.imgur.com/T6L1wnK.png" />
+
 
 
 ## Tecnologias
