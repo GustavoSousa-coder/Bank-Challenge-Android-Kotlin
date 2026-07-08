@@ -6,9 +6,10 @@ Aplicativo Android desenvolvido em Kotlin para consumir a [Bank Transaction API]
 
 ## Integração com a API
 
-Esta versão adiciona a comunicação completa entre o aplicativo e a API 
-backend, cobrindo os primeiros passos da jornada do usuário: cadastro, 
-configuração de conta e login.
+Esta versão fecha o ciclo completo de autenticação do aplicativo: 
+desde o primeiro cadastro até o acesso autenticado à Home. Todo o 
+fluxo foi implementado, testado de ponta a ponta e está funcionando 
+com a API backend.
 
 ### O que foi implementado
 
@@ -16,25 +17,38 @@ configuração de conta e login.
   data de nascimento, e-mail e senha), que são enviados para a API e 
   validados no servidor.
 
-- **Configuração de conta**: logo após o cadastro, o usuário escolhe 
-  o tipo de conta (Corrente ou Poupança), que é então criada e 
+- **Configuração de conta**: logo após o login, o usuário escolhe o 
+  tipo de conta (Corrente ou Poupança), que é então criada e 
   vinculada ao seu cadastro.
 
 - **Login e autenticação**: o usuário acessa o app com e-mail e senha. 
   A API retorna um token JWT, que o aplicativo passa a anexar 
-  automaticamente em todas as requisições seguintes — liberando o 
-  acesso à tela Home.
+  automaticamente em todas as requisições seguintes.
+
+- **Autorização por permissões (Roles)**: cada requisição autenticada 
+  é validada também quanto às permissões do usuário (Cliente ou 
+  Admin), garantindo que cada rota da API só seja acessada por quem 
+  tem autorização para isso.
+
+- **Continuidade de sessão**: o app reconhece automaticamente se o 
+  usuário já está logado, ou se iniciou um cadastro mas não chegou a 
+  configurar a conta — retomando o fluxo exatamente de onde parou, 
+  mesmo que o aplicativo tenha sido fechado no meio do processo.
 
 ### Como funciona por baixo dos panos
 
 Toda a comunicação entre app e API acontece via **HTTP**, usando 
 **DTOs** (Data Transfer Objects) — estruturas que representam 
 exatamente os dados trocados em cada requisição e resposta, mantendo 
-o app e a API sempre alinhados quanto ao formato da informação.
+o app e a API sempre alinhados quanto ao formato da informação. A 
+autenticação segue o padrão **JWT** (JSON Web Token) com controle de 
+acesso baseado em permissões (**Role-Based Access Control**), 
+seguindo as práticas recomendadas para APIs stateless.
 
-A tela **Home** já está preparada para receber as próximas 
-funcionalidades do app (saldo, transações, Pix, transferências), que 
-serão adicionadas nas próximas versões.
+### Ciclo de autenticação — concluído 
+
+Com essa versão, o fluxo de entrada do usuário no aplicativo está 
+100% funcional:
 
 ## Estado Atual do Projeto
 
@@ -149,4 +163,18 @@ esta é uma tela de configuração da conta, é essencial para que o app possa c
 
 ## Status
 
-🚧 Em desenvolvimento
+A partir daqui, o desenvolvimento passa a se concentrar **dentro** do 
+aplicativo já autenticado — construindo as funcionalidades que o 
+usuário vai usar no dia a dia.
+
+### Próximos passos
+
+Com a base de autenticação consolidada, as próximas versões vão focar 
+nas funcionalidades internas do app:
+
+- Exibição de saldo e dados reais da conta na Home
+- Menu lateral funcional (Perfil, Configurações, Suporte e Logout)
+- Notificações
+- Pix
+- Transferências
+- Otimização de performance e refinamento de experiência do usuário (UX)

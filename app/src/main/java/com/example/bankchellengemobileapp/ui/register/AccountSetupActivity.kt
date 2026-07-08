@@ -22,7 +22,7 @@ class AccountSetupActivity: AppCompatActivity() {
         setContentView(R.layout.activity_account_setup)
 
         val radioGroup: RadioGroup = findViewById(R.id.radioGroupTipoConta)
-        val btnConfirmar: Button = findViewById(R.id.btnConfirmarConta)
+        val btnConfirm: Button = findViewById(R.id.btnConfirmarConta)
 
         val clientUuid = OnboardingManager.getPendingClientUuid(this)
 
@@ -33,7 +33,7 @@ class AccountSetupActivity: AppCompatActivity() {
             return
         }
 
-        btnConfirmar.setOnClickListener {
+        btnConfirm.setOnClickListener {
 
             val type = when (radioGroup.checkedRadioButtonId) {
                 R.id.radioCorrente -> AccountType.CORRENTE

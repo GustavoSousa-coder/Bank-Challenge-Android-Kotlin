@@ -7,13 +7,13 @@ object TokenManager {
 
     private const val PREF_NAME = "auth_prefs"
     private const val KEY_TOKEN = "jwt_token"
-    private const val KEY_CLIENT_UUID = "client_uuid"
+    private const val KEY_CLIENT_UUID = "uuid"
 
-    fun saveSession(context: Context, token: String, ClientUuid: UUID) {
+    fun saveSession(context: Context, token: String, uuid: UUID) {
         val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         prefs.edit()
             .putString(KEY_TOKEN, token)
-            .putString(KEY_CLIENT_UUID, ClientUuid.toString())
+            .putString(KEY_CLIENT_UUID, uuid.toString())
             .apply()
     }
 

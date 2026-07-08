@@ -11,7 +11,6 @@ import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.data.client.dto.ClientRequestDTO
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
-import com.example.bankchellengemobileapp.ui.home.HomeActivity
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -19,6 +18,7 @@ import java.time.format.DateTimeParseException
 import kotlin.jvm.java
 import android.text.Editable
 import android.text.TextWatcher
+import com.example.bankchellengemobileapp.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -106,7 +106,7 @@ class RegisterActivity : AppCompatActivity() {
                                 startActivity(
                                     Intent(
                                         this@RegisterActivity,
-                                        AccountSetupActivity::class.java
+                                        LoginActivity::class.java
                                     )
                                 )
                                 finish()

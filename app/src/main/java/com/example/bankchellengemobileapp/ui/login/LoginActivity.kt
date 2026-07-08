@@ -10,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.data.client.dto.AuthenticationRequestDTO
+import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.network.TokenManager
 import com.example.bankchellengemobileapp.ui.home.HomeActivity
+import com.example.bankchellengemobileapp.ui.register.AccountSetupActivity
 import com.example.bankchellengemobileapp.ui.register.RegisterActivity
 import kotlinx.coroutines.launch
+import kotlin.jvm.java
 
 class LoginActivity : AppCompatActivity() {
 
@@ -51,13 +54,14 @@ class LoginActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val authResponse = response.body()
                         if (authResponse != null) {
-                            TokenManager.saveSession(this@LoginActivity, authResponse.token, authResponse.CLientUuid)
-                            startActivity(
-                                Intent(
-                                    this@LoginActivity,
-                                    HomeActivity::class.java
-                                )
-                            )
+                            TokenManager.saveSession(this@LoginActivity, authResponse.token, authResponse.uuid)
+                            val destination = if (OnboardingManager.getPendingClientUuid(this@LoginActivity) != null) {
+                                AccountSetupActivity::class.java
+                            } else {
+                                HomeActivity::class.java
+                            }
+
+                            startActivity(Intent(this@LoginActivity, destination))
                             finish()
                         }
                     } else {

@@ -4,5 +4,5 @@ import java.util.UUID
 
 data class AuthenticationResponseDTO(
     val token: String,
-    val CLientUuid: UUID
+    val uuid: UUID
 )
