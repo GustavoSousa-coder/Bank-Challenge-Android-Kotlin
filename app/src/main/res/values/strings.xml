@@ -20,8 +20,9 @@
     <string name="login_titulo">Login</string>
     <string name="cpf">CPF</string>
     <string name="data_nascimento">Data de Nascimento</string>
-    <string name="configurar_conta_titulo">Configure sua conta</string>
-    <string name="configurar_conta_subtitulo">Escolha o tipo de conta que você deseja abrir</string>
+    <string name="configurar_conta_titulo">Confirme a criação de sua conta</string>
     <string name="conta_corrente">Conta Corrente</string>
     <string name="conta_poupanca">Conta Poupança</string>
+    <string name="AddressKey">Cadastrar Chave Pix</string>
+
 </resources>

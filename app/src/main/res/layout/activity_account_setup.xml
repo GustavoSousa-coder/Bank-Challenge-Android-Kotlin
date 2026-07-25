@@ -13,35 +13,11 @@
         android:textSize="24sp"
         android:layout_marginBottom="8dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/configurar_conta_subtitulo"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:layout_marginBottom="24dp" />
-
     <RadioGroup
         android:id="@+id/radioGroupTipoConta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <RadioButton
-            android:id="@+id/radioCorrente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conta_corrente"
-            android:textSize="18sp"
-            android:padding="12dp" />
-
-        <RadioButton
-            android:id="@+id/radioPoupanca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conta_poupanca"
-            android:textSize="18sp"
-            android:padding="12dp" />
 
     </RadioGroup>
 

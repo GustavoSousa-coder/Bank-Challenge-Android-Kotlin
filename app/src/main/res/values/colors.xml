@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black_pure">#0D0D0D</color>
+    <color name="black_soft">#1A1A1E</color>
+    <color name="silver_pearl">#C9CDD3</color>
+    <color name="silver_light">#E8E9EB</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_secondary">#8A8D91</color>
+    <color name="gray_disabled">#4A4A4E</color>
+
+    <color name="emerald_accent">#0F5C4A</color>
+    <color name="emerald_accent_light">#1B7A63</color>
+
+    <color name="error_red">#B23B3B</color>
 </resources>

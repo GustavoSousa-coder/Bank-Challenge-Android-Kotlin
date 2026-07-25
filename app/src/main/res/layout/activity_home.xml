@@ -101,7 +101,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    style="?android:attr/buttonBarButtonStyle"
+                    android:id="@+id/btnTransferir"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
@@ -109,11 +109,19 @@
                     tools:ignore="NestedWeights" />
 
                 <Button
-                    style="?android:attr/buttonBarButtonStyle"
+                    android:id="@+id/btnPix"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:text="@string/pix"/>
+
+                <Button
+                    android:id="@+id/btnAddressKey"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:text="@string/AddressKey"/>
+
 
             </LinearLayout>
 

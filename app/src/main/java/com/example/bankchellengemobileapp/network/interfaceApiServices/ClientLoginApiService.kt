@@ -1,4 +1,4 @@
-package com.example.bankchellengemobileapp.network
+package com.example.bankchellengemobileapp.network.interfaceApiServices
 
 import com.example.bankchellengemobileapp.data.client.dto.AuthenticationRequestDTO
 import com.example.bankchellengemobileapp.data.client.dto.AuthenticationResponseDTO

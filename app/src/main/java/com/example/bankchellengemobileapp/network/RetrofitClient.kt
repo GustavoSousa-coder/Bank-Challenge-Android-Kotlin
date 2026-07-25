@@ -1,6 +1,9 @@
 package com.example.bankchellengemobileapp.network
 
 import android.content.Context
+import com.example.bankchellengemobileapp.network.interfaceApiServices.AccountApiService
+import com.example.bankchellengemobileapp.network.interfaceApiServices.ClientApiService
+import com.example.bankchellengemobileapp.network.interfaceApiServices.ClientLoginApiService
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonPrimitive
@@ -22,14 +25,24 @@ object RetrofitClient {
     private fun getRetrofit(context: Context): Retrofit {
 
         val authInterceptor = Interceptor { chain ->
-            val token = TokenManager.getToken(context)
-            val request = if (token != null) {
-                chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
+            val originalRequest = chain.request()
+
+            val isPublicRoute = originalRequest.url.encodedPath.contains("/auth/login") ||
+                    (originalRequest.method == "POST" && originalRequest.url.encodedPath == "/api/v1/client")
+
+            val request = if (!isPublicRoute) {
+                val token = TokenManager.getToken(context)
+                if (token != null) {
+                    originalRequest.newBuilder()
+                        .addHeader("Authorization", "Bearer $token")
+                        .build()
+                } else {
+                    originalRequest
+                }
             } else {
-                chain.request()
+                originalRequest
             }
+
             chain.proceed(request)
         }
 

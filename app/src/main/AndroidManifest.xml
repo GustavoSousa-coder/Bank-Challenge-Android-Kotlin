@@ -26,8 +26,8 @@
         <activity android:name=".ui.login.LoginActivity" android:exported="false" />
         <activity android:name=".ui.register.RegisterActivity" android:exported="false" />
         <activity android:name=".ui.register.AccountSetupActivity" android:exported="false" />
-        <activity android:name=".ui.home.HomeActivity" android:exported="false"
-            tools:ignore="Instantiatable" />
+        <activity android:name=".ui.home.HomeActivity" android:exported="false" />
+        <activity android:name=".ui.transactions.TransactionsActivity" />
     </application>
 
 </manifest>

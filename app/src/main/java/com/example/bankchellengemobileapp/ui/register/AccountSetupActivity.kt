@@ -3,13 +3,10 @@ package com.example.bankchellengemobileapp.ui.register
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.bankchellengemobileapp.R
-import com.example.bankchellengemobileapp.data.account.dto.AccountRequestDTO
-import com.example.bankchellengemobileapp.data.enums.AccountType
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.ui.login.LoginActivity
@@ -21,7 +18,6 @@ class AccountSetupActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_setup)
 
-        val radioGroup: RadioGroup = findViewById(R.id.radioGroupTipoConta)
         val btnConfirm: Button = findViewById(R.id.btnConfirmarConta)
 
         val clientUuid = OnboardingManager.getPendingClientUuid(this)
@@ -35,23 +31,12 @@ class AccountSetupActivity: AppCompatActivity() {
 
         btnConfirm.setOnClickListener {
 
-            val type = when (radioGroup.checkedRadioButtonId) {
-                R.id.radioCorrente -> AccountType.CORRENTE
-                R.id.radioPoupanca -> AccountType.POUPANCA
-                else -> null
-            }
-
-            if (type == null) {
-                Toast.makeText(this, "Selecione um tipo de conta", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
 
             val accountApi = RetrofitClient.getAccountApi(this)
-            val request = AccountRequestDTO(type = type)
 
             lifecycleScope.launch {
                 try {
-                    val response = accountApi.save(clientUuid, request)
+                    val response = accountApi.save(clientUuid)
 
                     if (response.isSuccessful) {
                         OnboardingManager.clearPendingClientUuid(this@AccountSetupActivity)
