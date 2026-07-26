@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">Bank App</string>
     <string name="login">Login</string>
-    <string name="phrase_login">Insira Seus Dados de Login</string>
     <string name="voltar">Voltar</string>
     <string name="confirmar">Confirmar</string>
     <string name="nao_tem_conta">Não tem conta? Cadastre-se</string>
     <string name="cadastro">Cadastro</string>
-    <string name="phrase_register">Crie sua conta pessoal</string>
     <string name="menu_button">Menu</string>
     <string name="notification">Notificação</string>
     <string name="saldo_disponível">Saldo Disponível</string>
@@ -24,5 +22,11 @@
     <string name="conta_corrente">Conta Corrente</string>
     <string name="conta_poupanca">Conta Poupança</string>
     <string name="AddressKey">Cadastrar Chave Pix</string>
+    <string name="criar_cartao_virtual">Cartão Virtual</string>
+    <string name="login_subtitulo">Acesse sua conta para continuar</string>
+    <string name="cadastro_subtitulo">Preencha os dados para criar sua conta</string>
+    <string name="configurar_conta_subtitulo">Confirme os dados da sua conta para continuar</string>
+    <string name="tipo_conta_corrente">Conta Corrente</string>
+    <string name="tipo_conta_corrente_descricao">Sua conta será criada com acesso completo a transferências, Pix e cartão virtual</string>
 
 </resources>

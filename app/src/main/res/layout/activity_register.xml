@@ -1,63 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp">
+    android:background="@drawable/bg_root"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cadastro"
-        android:textSize="24sp"
-        android:layout_marginBottom="24dp" />
-
-    <EditText
-        android:id="@+id/editNome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nome"
-        android:inputType="textPersonName" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/editCpf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/cpf"
-        android:inputType="text"
-        android:layout_marginTop="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/black_pure" />
 
-    <EditText
-        android:id="@+id/editDataNascimento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/data_nascimento"
-        android:inputType="number"
-        android:maxLength="10"
-        android:layout_marginTop="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/cadastro_subtitulo"
+            android:textSize="15sp"
+            android:textColor="@color/gray_secondary" />
 
-    <EditText
-        android:id="@+id/editEmailRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="12dp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@android:color/white">
 
-    <EditText
-        android:id="@+id/editSenhaRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/senha"
-        android:inputType="textPassword"
-        android:layout_marginTop="12dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/confirmar"
-        android:layout_marginTop="24dp" />
+                <EditText
+                    android:id="@+id/editNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nome"
+                    android:inputType="textPersonName"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/gray_secondary" />
 
-</LinearLayout>
+                <EditText
+                    android:id="@+id/editCpf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cpf"
+                    android:inputType="text"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/gray_secondary" />
+
+                <EditText
+                    android:id="@+id/editDataNascimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/data_nascimento"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/gray_secondary" />
+
+                <EditText
+                    android:id="@+id/editEmailRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/gray_secondary" />
+
+                <EditText
+                    android:id="@+id/editSenhaRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/senha"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:textSize="15sp"
+                    android:textColorHint="@color/gray_secondary" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/confirmar"
+            android:background="@drawable/bg_button_primary"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:letterSpacing="0.02"
+            android:elevation="4dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

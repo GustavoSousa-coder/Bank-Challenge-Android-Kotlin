@@ -5,46 +5,59 @@
     android:background="@color/white">
 
     <LinearLayout
-        android:id="@+id/barsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <View android:id="@+id/bar1" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginBottom="3dp" android:background="@color/black_soft" />
-        <View android:id="@+id/bar2" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginBottom="3dp" android:background="@color/gray_disabled" />
-        <View android:id="@+id/bar3" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginBottom="3dp" android:background="@color/gray_secondary" />
-        <View android:id="@+id/bar4" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginBottom="3dp" android:background="@color/silver_pearl" />
-        <View android:id="@+id/bar5" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginBottom="3dp" android:background="@color/silver_light" />
-        <View android:id="@+id/bar6" android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:background="@color/white" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtAppName"
+        android:id="@+id/logoContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Your Money"
-        android:textColor="@color/black_pure"
-        android:textSize="30sp"
-        android:textStyle="normal"
-        android:fontFamily="sans-serif-medium"
-        android:letterSpacing="0.02"
-        android:alpha="0" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <!-- Brilho que desliza sobre o texto, efeito "vidro" -->
+        <ImageView
+            android:id="@+id/logoMark"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:src="@drawable/ic_splash_mark"
+            android:alpha="0"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Your Money"
+            android:textColor="@color/black_pure"
+            android:textSize="26sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.02"
+            android:alpha="0" />
+
+    </LinearLayout>
+
     <View
         android:id="@+id/shimmerView"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_height="88dp"
         android:layout_gravity="center"
         android:background="@drawable/shimmer_gradient"
         android:alpha="0" />
+
+    <FrameLayout
+        android:id="@+id/progressTrack"
+        android:layout_width="120dp"
+        android:layout_height="4dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/bg_progress_track"
+        android:alpha="0">
+
+        <View
+            android:id="@+id/progressFill"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_progress_fill" />
+
+    </FrameLayout>
 
 </FrameLayout>
