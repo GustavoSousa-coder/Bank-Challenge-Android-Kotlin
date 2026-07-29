@@ -19,14 +19,64 @@
     <string name="cpf">CPF</string>
     <string name="data_nascimento">Data de Nascimento</string>
     <string name="configurar_conta_titulo">Confirme a criação de sua conta</string>
-    <string name="conta_corrente">Conta Corrente</string>
-    <string name="conta_poupanca">Conta Poupança</string>
     <string name="AddressKey">Cadastrar Chave Pix</string>
     <string name="criar_cartao_virtual">Cartão Virtual</string>
     <string name="login_subtitulo">Acesse sua conta para continuar</string>
     <string name="cadastro_subtitulo">Preencha os dados para criar sua conta</string>
     <string name="configurar_conta_subtitulo">Confirme os dados da sua conta para continuar</string>
-    <string name="tipo_conta_corrente">Conta Corrente</string>
-    <string name="tipo_conta_corrente_descricao">Sua conta será criada com acesso completo a transferências, Pix e cartão virtual</string>
+    <string name="tipo_conta_descricao">Sua conta será criada com acesso completo a transferências, Pix e cartão virtual</string>
+    <string name="limite_transacao">Limite de transação</string>
+
+    <string name="nova_transacao_titulo">Nova transação</string>
+    <string name="nova_transacao_subtitulo">Escolha o valor, o destinatário e a forma de pagamento</string>
+    <string name="valor_a_transferir">Valor a transferir</string>
+    <string name="chave_destinatario">Chave ou destinatário</string>
+    <string name="chave_destinatario_hint">CPF, e-mail, telefone ou chave aleatória</string>
+    <string name="metodo_pagamento">Forma de pagamento</string>
+    <string name="continuar">Continuar</string>
+
+    <string name="confirmar_pix_titulo">Confirmar Pix</string>
+    <string name="confirmar_pix_subtitulo">Revise os dados antes de enviar</string>
+    <string name="tipo_chave_pix">Tipo de chave</string>
+    <string name="chave_cpf">CPF</string>
+    <string name="chave_email">E-mail</string>
+    <string name="chave_telefone">Telefone</string>
+    <string name="chave_aleatoria">Aleatória</string>
+    <string name="digite_a_chave_pix">Digite a chave Pix</string>
+    <string name="gerar_qr_code">Gerar QR Code</string>
+    <string name="gerar_qr_code_descricao">Compartilhe um código para receber via Pix</string>
+
+    <string name="confirmar_cartao_titulo">Confirmar pagamento</string>
+    <string name="confirmar_cartao_subtitulo">Autorize o pagamento com seu cartão virtual</string>
+    <string name="nome_titular_placeholder">NOME DO TITULAR</string>
+    <string name="digite_o_cvv">Digite o CVV para autorizar</string>
+    <string name="cvv_hint">CVV</string>
+    <string name="autorizar_pagamento">Autorizar pagamento</string>
+    <string name="cartao_virtual">Cartão</string>
+
+    <string name="criar_cartao_titulo">Cartão virtual</string>
+    <string name="criar_cartao_subtitulo">Gere um cartão virtual para usar em compras online</string>
+    <string name="criar_cartao_info">O cartão será gerado instantaneamente e ficará disponível para uso imediato</string>
+    <string name="confirmar_criacao_cartao">Confirmar criação</string>
+
+    <string name="cartao_criado_titulo">Cartão criado!</string>
+    <string name="cartao_criado_subtitulo">Seu cartão virtual já está pronto para uso</string>
+    <string name="numero_cartao">Número do cartão</string>
+    <string name="copiar">Copiar</string>
+    <string name="concluir">Concluir</string>
+
+    <string name="cadastrar_chave_titulo">Cadastrar chave Pix</string>
+    <string name="cadastrar_chave_subtitulo">Escolha o tipo e informe o valor da sua chave</string>
+    <string name="chave_cnpj">CNPJ</string>
+    <string name="valor_da_chave">Valor da chave</string>
+    <string name="valor_da_chave_hint">Digite o valor correspondente ao tipo escolhido</string>
+    <string name="cadastrar_chave">Cadastrar chave</string>
+
+    <string name="minhas_chaves_titulo">Minhas chaves Pix</string>
+    <string name="minhas_chaves_subtitulo">Gerencie as chaves cadastradas na sua conta</string>
+    <string name="cadastrar_nova_chave">Cadastrar nova chave</string>
+    <string name="remover">Remover</string>
+    <string name="meus_cartoes_titulo">Meus cartões</string>
+    <string name="adicionar_cartao">Adicionar cartão</string>
 
 </resources>
