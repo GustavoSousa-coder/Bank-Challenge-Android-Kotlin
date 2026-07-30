@@ -66,7 +66,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/tipo_conta_corrente"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/black_pure" />

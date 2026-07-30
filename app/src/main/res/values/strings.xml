@@ -79,4 +79,12 @@
     <string name="meus_cartoes_titulo">Meus cartões</string>
     <string name="adicionar_cartao">Adicionar cartão</string>
 
+    <string name="acao_transacao">Transação</string>
+    <string name="minhas_chaves_curto">Minhas chaves</string>
+    <string name="pagar_com_pix">Pagar diretamente com Pix</string>
+    <string name="minhas_estatisticas_titulo">Minhas estatísticas</string>
+    <string name="ver_tudo">Ver tudo</string>
+    <string name="ola_usuario_placeholder">Olá, %1$s</string>
+    <string name="menu_perfil">"Menu "</string>
+
 </resources>

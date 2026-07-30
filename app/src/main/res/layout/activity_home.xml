@@ -7,247 +7,203 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_root">
+        android:background="@drawable/bg_root"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_square_action"
+            android:elevation="2dp"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imgAvatarUsuario"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_button_dark_outlined"
+                android:contentDescription="@string/menu_perfil"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtSaudacaoUsuario"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_card_virtual"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Olá, ${}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/btnNotificacao"
+                app:layout_constraintStart_toEndOf="@id/imgAvatarUsuario"
+                app:layout_constraintTop_toTopOf="@id/imgAvatarUsuario"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/btnNotificacao"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/notification"
+                android:padding="8dp"
+                android:src="@drawable/ic_notificacao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgAvatarUsuario" />
+
+            <LinearLayout
+                android:id="@+id/boxSaldo"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="96dp"
+                android:background="@drawable/bg_card_virtual"
+                android:orientation="vertical"
+                android:padding="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgAvatarUsuario">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/saldo_disponível"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textViewSaldo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="end"
+                    android:text="R$ 0,00"
+                    android:textColor="@android:color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_toggle_selected"
+                android:contentDescription="@string/menu_button"
+                android:padding="12dp"
+                android:src="@drawable/ic_menu_hamburguer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_header"
-                android:elevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp">
-
-                    <Button
-                        android:id="@+id/btnMenu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:text="@string/menu_button" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:gravity="start"
-                        android:text="@string/app_name"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlHardcoded" />
-
-                    <Button
-                        android:id="@+id/btnNotificacao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:text="@string/notification" />
-
-                </LinearLayout>
-
-            </FrameLayout>
-
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <Button
+                android:id="@+id/btnTransferir"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginEnd="6dp"
                 android:layout_weight="1"
-                android:fillViewport="true"
-                android:clipToPadding="false"
-                android:paddingBottom="16dp">
+                android:background="@drawable/bg_square_action"
+                android:elevation="4dp"
+                android:text="@string/acao_transacao"
+                android:textAllCaps="false"
+                android:textColor="@color/black_pure"
+                android:textSize="14sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <Button
+                android:id="@+id/btnMinhasChaves"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_square_action"
+                android:elevation="4dp"
+                android:text="@string/minhas_chaves_curto"
+                android:textAllCaps="false"
+                android:textColor="@color/black_pure"
+                android:textSize="14sp" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="20dp"
-                        app:cardCornerRadius="20dp"
-                        app:cardElevation="3dp"
-                        app:cardBackgroundColor="@android:color/white">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="20dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/saldo_disponível"
-                                android:textSize="16sp"
-                                android:textColor="#666666" />
-
-                            <TextView
-                                android:id="@+id/textViewSaldo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:text="R$ 0,00"
-                                android:textSize="34sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="Conta Corrente · 0001"
-                                android:textSize="14sp"
-                                android:textColor="#999999"
-                                tools:ignore="HardcodedText" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="20dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/btnTransferir"
-                                android:layout_width="0dp"
-                                android:layout_height="100dp"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="8dp"
-                                android:background="@drawable/bg_action_button"
-                                android:text="@string/transferir"
-                                android:textSize="13sp"
-                                android:textAllCaps="false" />
-
-                            <Button
-                                android:id="@+id/btnPix"
-                                android:layout_width="0dp"
-                                android:layout_height="100dp"
-                                android:layout_weight="1"
-                                android:layout_marginStart="8dp"
-                                android:background="@drawable/bg_action_button"
-                                android:text="@string/pix"
-                                android:textSize="13sp"
-                                android:textAllCaps="false" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/btnAddressKey"
-                                android:layout_width="0dp"
-                                android:layout_height="100dp"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="8dp"
-                                android:background="@drawable/bg_action_button"
-                                android:text="@string/AddressKey"
-                                android:textSize="13sp"
-                                android:textAllCaps="false" />
-
-                            <Button
-                                android:id="@+id/btnCardVirtual"
-                                android:layout_width="0dp"
-                                android:layout_height="100dp"
-                                android:layout_weight="1"
-                                android:layout_marginStart="8dp"
-                                android:background="@drawable/bg_action_button"
-                                android:text="@string/criar_cartao_virtual"
-                                android:textSize="13sp"
-                                android:textAllCaps="false" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginTop="28dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ultimas_transacoes"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="2dp"
-                            app:cardBackgroundColor="@android:color/white">
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recyclerViewTransacoes"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:minHeight="180dp"
-                                android:nestedScrollingEnabled="false"
-                                android:paddingTop="8dp"
-                                android:paddingBottom="8dp"
-                                tools:listitem="@layout/activity_transactions" />
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.core.widget.NestedScrollView>
+            <Button
+                android:id="@+id/btnPagarComPix"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_square_action"
+                android:elevation="4dp"
+                android:text="@string/pagar_com_pix"
+                android:textAllCaps="false"
+                android:textColor="@color/black_pure"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnMinhasEstatisticas"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/bg_square_action"
+            android:elevation="4dp"
+            android:text="@string/minhas_estatisticas_titulo"
+            android:textAllCaps="false"
+            android:textColor="@color/black_pure"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnMeusCartoes"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_button_dark_outlined"
+            android:elevation="4dp"
+            android:text="@string/meus_cartoes_titulo"
+            android:textAllCaps="false"
+            android:textColor="@color/black_pure"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_secondary" />
+
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        app:itemIconTint="@color/black_pure"
+        app:itemTextColor="@color/black_pure"
+        app:itemIconPadding="16dp"
+        app:itemHorizontalPadding="12dp"
+        app:itemShapeInsetStart="8dp"
+        app:itemShapeInsetEnd="8dp"
+        app:itemBackground="@drawable/bg_nav_item"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_lateral" />
 
