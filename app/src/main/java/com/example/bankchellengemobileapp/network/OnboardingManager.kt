@@ -1,5 +1,6 @@
 package com.example.bankchellengemobileapp.network
 
+import android.annotation.SuppressLint
 import android.content.Context
 import java.util.UUID
 
@@ -8,6 +9,7 @@ object OnboardingManager {
     private const val PREF_NAME = "onboarding_prefs"
     private const val KEY_CLIENT_UUID = "pending_client_uuid"
 
+    @SuppressLint("UseKtx")
     fun savePendingClientUuid(context: Context, uuid: UUID) {
         val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         prefs.edit().putString(KEY_CLIENT_UUID, uuid.toString()).apply()
@@ -18,6 +20,7 @@ object OnboardingManager {
         return prefs.getString(KEY_CLIENT_UUID, null)?.let { UUID.fromString(it) }
     }
 
+    @SuppressLint("UseKtx")
     fun clearPendingClientUuid(context: Context) {
         val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         prefs.edit().remove(KEY_CLIENT_UUID).apply()

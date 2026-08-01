@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                             val destination = if (OnboardingManager.getPendingClientUuid(this@LoginActivity) != null) {
                                 AccountSetupActivity::class.java
                             } else {
-                                HomeActivity::class.java
+                                        HomeActivity::class.java
                             }
 
                             startActivity(Intent(this@LoginActivity, destination))

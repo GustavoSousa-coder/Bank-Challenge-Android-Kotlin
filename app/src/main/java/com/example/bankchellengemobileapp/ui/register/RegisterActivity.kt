@@ -2,6 +2,8 @@ package com.example.bankchellengemobileapp.ui.register
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -11,14 +13,11 @@ import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.data.client.dto.ClientRequestDTO
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
+import com.example.bankchellengemobileapp.ui.login.LoginActivity
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
-import kotlin.jvm.java
-import android.text.Editable
-import android.text.TextWatcher
-import com.example.bankchellengemobileapp.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -29,46 +28,12 @@ class RegisterActivity : AppCompatActivity() {
         val name: EditText = findViewById(R.id.editNome)
         val cpf: EditText = findViewById(R.id.editCpf)
         val dateOfBirth: EditText = findViewById(R.id.editDataNascimento)
-
-        dateOfBirth.addTextChangedListener(object : TextWatcher {
-            private var isUpdating = false
-            private var oldText = ""
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val str = s.toString().replace("[^\\d]".toRegex(), "")
-                var formatted = ""
-
-                if (isUpdating) {
-                    oldText = str
-                    isUpdating = false
-                    return
-                }
-
-                isUpdating = true
-
-                if (str.length >= 2) {
-                    formatted += str.substring(0, 2) + "/"
-                    if (str.length >= 4) {
-                        formatted += str.substring(2, 4) + "/"
-                        formatted += if (str.length > 8) str.substring(4, 8) else str.substring(4)
-                    } else {
-                        formatted += str.substring(2)
-                    }
-                } else {
-                    formatted = str
-                }
-
-                dateOfBirth.setText(formatted)
-                dateOfBirth.setSelection(formatted.length)
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
         val email: EditText = findViewById(R.id.editEmailRegistro)
         val password: EditText = findViewById(R.id.editSenhaRegistro)
         val buttonRegister: Button = findViewById(R.id.btnCadastrar)
+
+        applyMask(dateOfBirth, "##/##/####")
+        applyMask(cpf, "###.###.###-##")
 
         buttonRegister.setOnClickListener {
 
@@ -87,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 val request = ClientRequestDTO(
                     name = name.text.toString(),
-                    cpf = cpf.text.toString(),
+                    cpf = cpf.text.toString().filter { it.isDigit() },
                     dateOfBirth = dateConverted,
                     email = email.text.toString(),
                     password = password.text.toString()
@@ -122,8 +87,46 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
-
-
         }
+    }
+
+    private fun applyMask(editText: EditText, mask: String) {
+        editText.addTextChangedListener(object : TextWatcher {
+            private var isUpdating = false
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (isUpdating) return
+
+                val digits = s.toString().filter { it.isDigit() }
+                val formatted = buildMasked(digits, mask)
+
+                isUpdating = true
+                editText.setText(formatted)
+                editText.setSelection(formatted.length)
+                isUpdating = false
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+    }
+
+    private fun buildMasked(digits: String, mask: String): String {
+        val result = StringBuilder()
+        var digitIndex = 0
+
+        for (maskChar in mask) {
+            if (digitIndex >= digits.length) break
+
+            if (maskChar == '#') {
+                result.append(digits[digitIndex])
+                digitIndex++
+            } else {
+                result.append(maskChar)
+            }
+        }
+
+        return result.toString()
     }
 }

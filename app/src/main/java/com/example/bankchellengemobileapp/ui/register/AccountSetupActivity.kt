@@ -1,5 +1,6 @@
 package com.example.bankchellengemobileapp.ui.register
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -14,11 +15,12 @@ import kotlinx.coroutines.launch
 
 class AccountSetupActivity: AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_setup)
 
-        val btnConfirm: Button = findViewById(R.id.btnConfirmarConta)
+        val btnConfirm: Button = findViewById(R.id.btnConfirmar)
 
         val clientUuid = OnboardingManager.getPendingClientUuid(this)
 
@@ -30,8 +32,6 @@ class AccountSetupActivity: AppCompatActivity() {
         }
 
         btnConfirm.setOnClickListener {
-
-
             val accountApi = RetrofitClient.getAccountApi(this)
 
             lifecycleScope.launch {
