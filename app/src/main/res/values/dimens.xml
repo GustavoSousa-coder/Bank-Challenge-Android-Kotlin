@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Espacamentos (escala consistente) -->
+    <dimen name="space_xs">5dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">15dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+
+    <!-- Bordas e sombras pixeladas (deslocamento rigido) -->
+    <dimen name="pixel_border">2dp</dimen>
+    <dimen name="pixel_shadow_offset">4dp</dimen>
+    <dimen name="pixel_shadow_offset_sm">2dp</dimen>
+
+    <!-- Tamanhos de componentes -->
+    <dimen name="icon_button_size">48dp</dimen>
+    <dimen name="icon_button_small">32dp</dimen>
+    <dimen name="icon_box_size">40dp</dimen>
+    <dimen name="icon_size">30dp</dimen>
+    <dimen name="icon_size_lg">24dp</dimen>
+    <dimen name="icon_size_sm">18dp</dimen>
+
+    <dimen name="primary_button_height">56dp</dimen>
+    <dimen name="action_box_height">96dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+
+    <!-- Tipografia pixelada (Press Start 2P e VT323) -->
+    <dimen name="text_pixel_micro">15sp</dimen>
+    <dimen name="text_pixel_xs">15sp</dimen>
+    <dimen name="text_pixel_sm">9sp</dimen>
+    <dimen name="text_pixel_md">25sp</dimen>
+    <dimen name="text_pixel_balance">20sp</dimen>
+    <dimen name="text_body">15sp</dimen>
+
+    <!-- Extrato -->
+    <dimen name="field_height">48dp</dimen>
+    <dimen name="apply_button_height">56dp</dimen>
+    <dimen name="state_box_padding">32dp</dimen>
+    <dimen name="state_icon_box_size">56dp</dimen>
+    <dimen name="state_icon_size">28dp</dimen>
+    <dimen name="loading_block_size">12dp</dimen>
+    <dimen name="summary_accent_width">2dp</dimen>
+
+    <!-- Cartao -->
+    <dimen name="card_chip_width">48dp</dimen>
+    <dimen name="card_chip_height">32dp</dimen>
+    <dimen name="card_chip_bar">8dp</dimen>
+    <dimen name="card_reveal_button">40dp</dimen>
+    <dimen name="card_status_dot">12dp</dimen>
+    <dimen name="card_empty_box">80dp</dimen>
+    <dimen name="card_empty_glyph_size">32sp</dimen>
+    <dimen name="card_text_number">13sp</dimen>
+    <dimen name="card_dialog_width">300dp</dimen>
+    <dimen name="secondary_button_height">52dp</dimen>
+    <dimen name="dialog_button_height">44dp</dimen>
+
+    <!-- Perfil -->
+    <dimen name="profile_avatar_size">80dp</dimen>
+    <dimen name="profile_avatar_initials">22sp</dimen>
+    <dimen name="profile_status_dot">16dp</dimen>
+    <dimen name="profile_action_min_height">52dp</dimen>
+    <dimen name="profile_dialog_width">300dp</dimen>
+    <dimen name="profile_field_height">44dp</dimen>
+
+    <!-- ============ PERFIL ============ -->
+    <string name="profile_title">PERFIL</string>
+
+    <!-- Cabecalho -->
+    <string name="profile_status_active">CLIENTE ATIVO</string>
+    <string name="profile_status_inactive">CLIENTE INATIVO</string>
+    <string name="cd_status_active">Cliente ativo</string>
+    <string name="cd_status_inactive">Cliente inativo</string>
+    <string name="profile_email_registered">EMAIL CADASTRADO</string>
+    <string name="profile_inactive_banner">SUA CONTA ESTA INATIVA. CONTACTE O SUPORTE PARA REATIVAR.</string>
+
+    <!-- Dados pessoais -->
+    <string name="profile_personal_title">DADOS PESSOAIS</string>
+    <string name="profile_label_name">NOME COMPLETO</string>
+    <string name="profile_label_email">EMAIL</string>
+    <string name="profile_label_cpf">CPF</string>
+    <string name="profile_label_birth">DATA DE NASCIMENTO</string>
+    <string name="profile_label_status">STATUS</string>
+    <string name="profile_value_active">ATIVO</string>
+    <string name="profile_value_inactive">INATIVO</string>
+    <string name="cd_edit_email">Editar e-mail</string>
+    <!-- Mascara de CPF (apenas os dois ultimos digitos ficam visiveis) -->
+    <string name="profile_cpf_masked">***.***.***-%1$s</string>
+
+    <!-- Dialogo de edicao de e-mail -->
+    <string name="profile_edit_email_title">EDITAR EMAIL</string>
+    <string name="profile_edit_email_hint">Novo e-mail</string>
+    <string name="profile_edit_email_cancel">CANCELAR</string>
+    <string name="profile_edit_email_save">SALVAR</string>
+    <string name="profile_edit_email_error_required">Informe um e-mail.</string>
+    <string name="profile_edit_email_error_invalid">Informe um e-mail valido.</string>
+
+    <!-- Seguranca e preferencias -->
+    <string name="profile_security_title">SEGURANCA E PREFERENCIAS</string>
+    <string name="profile_change_password">ALTERAR SENHA</string>
+    <string name="profile_biometry">ACESSO POR BIOMETRIA</string>
+    <string name="profile_notifications">NOTIFICACOES</string>
+    <string name="profile_hide_balance">OCULTAR SALDO</string>
+    <string name="cd_toggle_biometry">Alternar acesso por biometria</string>
+    <string name="cd_toggle_notifications">Alternar notificacoes</string>
+    <string name="cd_toggle_hide_balance">Alternar ocultar saldo</string>
+
+    <!-- Acoes da conta -->
+    <string name="profile_logout">SAIR DA CONTA</string>
+    <string name="profile_deactivate">DESATIVAR CONTA</string>
+    <string name="profile_version">VERSAO %1$s</string>
+
+    <!-- Confirmacao de saida -->
+    <string name="profile_logout_title">CONFIRMAR SAIDA</string>
+    <string name="profile_logout_desc">Deseja sair da sua conta?</string>
+    <string name="profile_logout_confirm">SAIR</string>
+
+    <!-- Confirmacao de desativacao (destrutiva) -->
+    <string name="profile_deactivate_title">DESATIVAR CONTA</string>
+    <string name="profile_deactivate_desc">Ao desativar sua conta, seu acesso sera bloqueado. Voce pode reativar a conta em ate 30 dias. Apos esse periodo, todos os seus dados serao permanentemente removidos.</string>
+    <string name="profile_deactivate_confirm">DESATIVAR</string>
+    <string name="profile_dialog_cancel">CANCELAR</string>
+
+    <!-- Estados -->
+    <string name="profile_loading">CARREGANDO</string>
+    <string name="profile_error_title">ALGO DEU ERRADO</string>
+    <string name="profile_error_desc">Nao foi possivel carregar seus dados. Verifique sua conexao e tente novamente.</string>
+    <string name="profile_retry">TENTAR NOVAMENTE</string>
+</resources>

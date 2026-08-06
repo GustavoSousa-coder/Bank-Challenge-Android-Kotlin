@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trilha do SwitchMaterial pixel: verde quando ligado, superficie quando desligado. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/pixel_green" android:state_checked="true" />
+    <item android:color="@color/pixel_surface" />
+</selector>

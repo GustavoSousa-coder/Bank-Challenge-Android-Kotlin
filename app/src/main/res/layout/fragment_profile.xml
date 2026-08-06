@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tela de Perfil. Espelha o prototipo React aprovado (pixel-profile-management
+  + pixel-profile-avatar + pixel-profile-personal-data + pixel-profile-security
+  + pixel-profile-actions), sem redesenhar. Contem apenas o conteudo da
+  Fragment: a barra de navegacao inferior pertence a Activity e nao e
+  duplicada aqui (mesmo padrao de fragment_card.xml).
+
+  Estrutura: conteudo rolavel (NestedScrollView) com tres containers de estado
+  (carregando, erro, conteudo) alternados por visibilidade; dois overlays
+  (editar e-mail e confirmacao) ficam por cima de tudo, fora do scroll.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pixel_black"
+    android:fitsSystemWindows="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/bottom_nav_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/space_xl">
+
+            <!-- ==== Titulo da tela ==== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_lg"
+                android:layout_marginTop="@dimen/space_xl"
+                android:layout_marginEnd="@dimen/space_lg"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:includeFontPadding="false"
+                android:text="@string/profile_title"
+                android:textColor="@color/pixel_white"
+                android:textSize="@dimen/text_pixel_md" />
+
+            <!-- ============ ESTADO: CARREGANDO ============ -->
+            <LinearLayout
+                android:id="@+id/state_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/state_box_padding"
+                tools:visibility="gone">
+
+                <TextView
+                    style="@style/PixelText.Sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_loading"
+                    android:textColor="@color/pixel_muted" />
+
+                <TextView
+                    style="@style/PixelText.Balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_lg"
+                    android:text="@string/card_empty_glyph"
+                    android:textColor="@color/pixel_white"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <!-- ============ ESTADO: ERRO ============ -->
+            <LinearLayout
+                android:id="@+id/state_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_lg"
+                android:layout_marginEnd="@dimen/space_lg"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/state_box_padding"
+                android:paddingBottom="@dimen/state_box_padding"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <FrameLayout
+                    android:layout_width="@dimen/state_icon_box_size"
+                    android:layout_height="@dimen/state_icon_box_size"
+                    android:background="@drawable/bg_icon_box_red">
+
+                    <ImageView
+                        android:layout_width="@dimen/state_icon_size"
+                        android:layout_height="@dimen/state_icon_size"
+                        android:layout_gravity="center"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_alert_triangle"
+                        app:tint="@color/pixel_red" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/PixelText.Md"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:text="@string/profile_error_title" />
+
+                <TextView
+                    style="@style/BodyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.1"
+                    android:text="@string/profile_error_desc" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_retry"
+                    style="@style/PixelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/secondary_button_height"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:background="@drawable/selector_btn_primary"
+                    android:paddingStart="@dimen/space_xl"
+                    android:paddingEnd="@dimen/pixel_shadow_offset"
+                    android:paddingBottom="@dimen/pixel_shadow_offset"
+                    android:text="@string/profile_retry"
+                    android:textColor="@color/pixel_black"
+                    android:textSize="@dimen/text_pixel_sm"
+                    app:icon="@drawable/ic_rotate_ccw"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/space_md"
+                    app:iconSize="@dimen/icon_size"
+                    app:iconTint="@color/pixel_black" />
+            </LinearLayout>
+
+            <!-- ============ ESTADO: CONTEUDO ============ -->
+            <LinearLayout
+                android:id="@+id/state_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- ==== Cabecalho: avatar + nome + status ==== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_xl"
+                    android:paddingBottom="@dimen/space_lg">
+
+                    <!-- Avatar pixelado com iniciais + indicador de status -->
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/profile_avatar_size"
+                            android:layout_height="@dimen/profile_avatar_size"
+                            android:background="@drawable/bg_card_shadow">
+
+                            <TextView
+                                android:id="@+id/tv_initials"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                                android:includeFontPadding="false"
+                                android:textColor="@color/pixel_white"
+                                android:textSize="@dimen/profile_avatar_initials"
+                                tools:text="MS" />
+                        </FrameLayout>
+
+                        <View
+                            android:id="@+id/status_dot"
+                            android:layout_width="@dimen/profile_status_dot"
+                            android:layout_height="@dimen/profile_status_dot"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginEnd="@dimen/space_sm"
+                            android:layout_marginBottom="@dimen/space_sm"
+                            android:background="@drawable/bg_status_active"
+                            android:contentDescription="@string/cd_status_active" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        style="@style/PixelText.Md"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_lg"
+                        android:gravity="center"
+                        tools:text="MARIANA SILVA" />
+
+                    <TextView
+                        android:id="@+id/tv_status_label"
+                        style="@style/PixelText.Xs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        android:textColor="@color/pixel_green"
+                        tools:text="CLIENTE ATIVO" />
+                </LinearLayout>
+
+                <!-- Aviso de conta inativa -->
+                <TextView
+                    android:id="@+id/tv_inactive_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:background="@drawable/bg_state_error"
+                    android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                    android:includeFontPadding="false"
+                    android:lineSpacingMultiplier="1.3"
+                    android:padding="@dimen/space_md"
+                    android:text="@string/profile_inactive_banner"
+                    android:textColor="@color/pixel_red"
+                    android:textSize="@dimen/text_pixel_xs"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <!-- Divisor tracejado -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/pixel_border"
+                    android:layout_marginTop="@dimen/space_lg"
+                    android:layerType="software"
+                    android:background="@drawable/divider_dashed" />
+
+                <!-- E-mail cadastrado (informacao do cabecalho) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/space_lg"
+                    android:paddingTop="@dimen/space_lg"
+                    android:paddingEnd="@dimen/space_lg"
+                    android:paddingBottom="@dimen/space_lg">
+
+                    <TextView
+                        style="@style/PixelText.Xs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_email_registered" />
+
+                    <TextView
+                        android:id="@+id/tv_email_header"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        tools:text="mariana.silva@example.com" />
+                </LinearLayout>
+
+                <!-- ==== Card: Dados pessoais ==== -->
+                <TextView
+                    style="@style/PixelText.Xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:text="@string/profile_personal_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:background="@drawable/bg_card_shadow"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/space_lg"
+                    android:paddingTop="@dimen/space_lg"
+                    android:paddingEnd="@dimen/space_lg"
+                    android:paddingBottom="@dimen/space_lg">
+
+                    <!-- Nome (somente leitura) -->
+                    <TextView
+                        style="@style/PixelText.Micro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_label_name" />
+
+                    <TextView
+                        android:id="@+id/tv_name_value"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        tools:text="MARIANA SILVA" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pixel_border"
+                        android:layout_marginVertical="@dimen/space_md"
+                        android:layerType="software"
+                        android:background="@drawable/divider_dashed" />
+
+                    <!-- E-mail (editavel) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/PixelText.Micro"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/profile_label_email" />
+
+                        <ImageButton
+                            android:id="@+id/btn_edit_email"
+                            android:layout_width="@dimen/icon_button_small"
+                            android:layout_height="@dimen/icon_button_small"
+                            android:background="@drawable/bg_icon_box_outline"
+                            android:contentDescription="@string/cd_edit_email"
+                            android:padding="@dimen/space_sm"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_edit"
+                            app:tint="@color/pixel_white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_email_value"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        tools:text="mariana.silva@example.com" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pixel_border"
+                        android:layout_marginVertical="@dimen/space_md"
+                        android:layerType="software"
+                        android:background="@drawable/divider_dashed" />
+
+                    <!-- CPF mascarado (somente leitura) -->
+                    <TextView
+                        style="@style/PixelText.Micro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_label_cpf" />
+
+                    <TextView
+                        android:id="@+id/tv_cpf_value"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        tools:text="***.***.***-01" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pixel_border"
+                        android:layout_marginVertical="@dimen/space_md"
+                        android:layerType="software"
+                        android:background="@drawable/divider_dashed" />
+
+                    <!-- Data de nascimento (somente leitura) -->
+                    <TextView
+                        style="@style/PixelText.Micro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_label_birth" />
+
+                    <TextView
+                        android:id="@+id/tv_birth_value"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        tools:text="15/05/1990" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pixel_border"
+                        android:layout_marginVertical="@dimen/space_md"
+                        android:layerType="software"
+                        android:background="@drawable/divider_dashed" />
+
+                    <!-- Status -->
+                    <TextView
+                        style="@style/PixelText.Micro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_label_status" />
+
+                    <TextView
+                        android:id="@+id/tv_status_value"
+                        style="@style/PixelText.Sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        android:textColor="@color/pixel_green"
+                        tools:text="ATIVO" />
+                </LinearLayout>
+
+                <!-- ==== Card: Seguranca e preferencias ==== -->
+                <TextView
+                    style="@style/PixelText.Xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:text="@string/profile_security_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:background="@drawable/bg_card_shadow"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/space_lg"
+                    android:paddingTop="@dimen/space_lg"
+                    android:paddingEnd="@dimen/space_lg"
+                    android:paddingBottom="@dimen/space_lg">
+
+                    <!-- Alterar senha -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_change_password"
+                        style="@style/PixelButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/profile_action_min_height"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="@dimen/space_md"
+                        android:paddingEnd="@dimen/space_md"
+                        android:text="@string/profile_change_password"
+                        android:textColor="@color/pixel_white"
+                        android:textSize="@dimen/text_pixel_sm"
+                        app:icon="@drawable/ic_lock"
+                        app:iconGravity="textStart"
+                        app:iconPadding="@dimen/space_md"
+                        app:iconSize="@dimen/icon_size_lg"
+                        app:iconTint="@color/pixel_white" />
+
+                    <!-- Biometria -->
+                    <include
+                        android:id="@+id/row_biometry"
+                        layout="@layout/item_profile_action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_md" />
+
+                    <!-- Notificacoes -->
+                    <include
+                        android:id="@+id/row_notifications"
+                        layout="@layout/item_profile_action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_md" />
+
+                    <!-- Ocultar saldo -->
+                    <include
+                        android:id="@+id/row_hide_balance"
+                        layout="@layout/item_profile_action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_md" />
+                </LinearLayout>
+
+                <!-- ==== Acoes da conta ==== -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_logout"
+                    style="@style/PixelButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/secondary_button_height"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:background="@drawable/selector_btn_primary"
+                    android:paddingEnd="@dimen/pixel_shadow_offset"
+                    android:paddingBottom="@dimen/pixel_shadow_offset"
+                    android:text="@string/profile_logout"
+                    android:textColor="@color/pixel_black"
+                    android:textSize="@dimen/text_pixel_sm"
+                    app:icon="@drawable/ic_logout"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/space_md"
+                    app:iconSize="@dimen/icon_size"
+                    app:iconTint="@color/pixel_black"
+                    tools:ignore="RtlSymmetry" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_deactivate"
+                    style="@style/PixelButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/secondary_button_height"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:background="@drawable/seletor_btn_secondary"
+                    android:paddingEnd="@dimen/pixel_shadow_offset_sm"
+                    android:paddingBottom="@dimen/pixel_shadow_offset_sm"
+                    android:text="@string/profile_deactivate"
+                    android:textColor="@color/pixel_red"
+                    android:textSize="@dimen/text_pixel_sm"
+                    app:icon="@drawable/ic_alert_triangle"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/space_md"
+                    app:iconSize="@dimen/icon_size"
+                    app:iconTint="@color/pixel_red"
+                    tools:ignore="RtlSymmetry" />
+
+                <!-- Rodape com versao -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/pixel_border"
+                    android:layout_marginStart="@dimen/space_lg"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:layout_marginEnd="@dimen/space_lg"
+                    android:layerType="software"
+                    android:background="@drawable/divider_dashed" />
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    style="@style/PixelText.Micro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_lg"
+                    android:gravity="center"
+                    tools:text="VERSAO 1.0.0" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ OVERLAY: EDITAR EMAIL ============ -->
+    <include
+        android:id="@+id/edit_email_overlay"
+        layout="@layout/dialog_edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ============ OVERLAY: CONFIRMACAO ============ -->
+    <include
+        android:id="@+id/confirm_overlay"
+        layout="@layout/view_profile_confirm_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estado pressionado: face deslocada para dentro (efeito "afundar") -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/pixel_shadow_offset"
+        android:top="@dimen/pixel_shadow_offset">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pixel_white" />
+            <stroke
+                android:width="@dimen/pixel_border"
+                android:color="@color/pixel_white" />
+        </shape>
+    </item>
+</layer-list>

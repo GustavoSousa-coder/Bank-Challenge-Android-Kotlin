@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilos de texto pixelado (Press Start 2P) -->
+    <style name="PixelText">
+        <item name="android:fontFamily">@font/bitcountpropsingle_cursive_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/pixel_white</item>
+    </style>
+
+    <style name="PixelText.Micro">
+        <item name="android:textSize">@dimen/text_pixel_micro</item>
+        <item name="android:textColor">@color/pixel_muted</item>
+    </style>
+
+    <style name="PixelText.Xs">
+        <item name="android:textSize">@dimen/text_pixel_xs</item>
+        <item name="android:textColor">@color/pixel_muted</item>
+    </style>
+
+    <style name="PixelText.Sm">
+        <item name="android:textSize">@dimen/text_pixel_sm</item>
+    </style>
+
+    <style name="PixelText.Md">
+        <item name="android:textSize">@dimen/text_pixel_md</item>
+    </style>
+
+    <style name="PixelText.Balance">
+        <item name="android:textSize">@dimen/text_pixel_balance</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Texto de apoio (VT323) -->
+    <style name="BodyText">
+        <item name="android:fontFamily">@font/bitcountpropsingle_cursive_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/pixel_muted</item>
+    </style>
+
+    <style name="PixelButton" parent="Widget.Material3.Button">
+        <item name="android:fontFamily">@font/bitcountpropsingle_cursive_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Chip de periodo pixelado (segmentado, selecao unica) -->
+    <style name="PixelChip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:fontFamily">@font/bitcountpropsingle_cursive_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/text_pixel_xs</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:checkable">true</item>
+        <item name="chipCornerRadius">0dp</item>
+        <item name="chipStrokeWidth">@dimen/pixel_border</item>
+        <item name="chipStrokeColor">@color/pixel_white</item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="checkedIcon">@null</item>
+        <item name="rippleColor">@color/pixel_muted</item>
+    </style>
+
+    <!-- Switch pixelado (SwitchMaterial monocromatico) usado no Perfil -->
+    <style name="PixelSwitch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+        <item name="android:layout_marginStart">@dimen/space_md</item>
+    </style>
+</resources>

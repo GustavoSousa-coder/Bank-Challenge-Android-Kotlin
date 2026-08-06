@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botao secundario (face preta, borda branca) com sombra pixel pequena -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/pixel_shadow_offset_sm"
+        android:top="@dimen/pixel_shadow_offset_sm">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pixel_white" />
+        </shape>
+    </item>
+    <item
+        android:right="@dimen/pixel_shadow_offset_sm"
+        android:bottom="@dimen/pixel_shadow_offset_sm">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pixel_black" />
+            <stroke
+                android:width="@dimen/pixel_border"
+                android:color="@color/pixel_white" />
+        </shape>
+    </item>
+</layer-list>

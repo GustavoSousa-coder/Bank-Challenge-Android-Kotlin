@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Overlay de confirmacao reutilizavel (sair / desativar conta), no estilo
+  pixel 8/16-bit. Titulo, descricao, cor e rotulo do botao de confirmacao sao
+  definidos pela ProfileFragment conforme a acao. A raiz cobre a tela com um
+  veu escuro; a Fragment controla a visibilidade.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3000000"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="@dimen/profile_dialog_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/space_lg"
+        android:background="@drawable/bg_card_shadow"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_xl"
+        android:paddingTop="@dimen/space_xl"
+        android:paddingEnd="@dimen/space_xl"
+        android:paddingBottom="@dimen/space_xl">
+
+        <TextView
+            android:id="@+id/confirm_title"
+            style="@style/PixelText.Md"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/space_sm"
+            android:gravity="center_vertical"
+            tools:text="DESATIVAR CONTA" />
+
+        <TextView
+            android:id="@+id/confirm_desc"
+            style="@style/BodyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:lineSpacingMultiplier="1.1"
+            tools:text="Deseja sair da sua conta?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel_confirm"
+                style="@style/PixelButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_button_height"
+                android:layout_weight="1"
+                android:background="@drawable/seletor_btn_secondary"
+                android:paddingEnd="@dimen/pixel_shadow_offset_sm"
+                android:paddingBottom="@dimen/pixel_shadow_offset_sm"
+                android:text="@string/profile_dialog_cancel"
+                android:textColor="@color/pixel_white"
+                android:textSize="@dimen/text_pixel_xs"
+                tools:ignore="RtlSymmetry" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ok_confirm"
+                style="@style/PixelButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dialog_button_height"
+                android:layout_marginStart="@dimen/space_md"
+                android:layout_weight="1"
+                android:background="@drawable/seletor_btn_secondary"
+                android:paddingEnd="@dimen/pixel_shadow_offset_sm"
+                android:paddingBottom="@dimen/pixel_shadow_offset_sm"
+                android:textColor="@color/pixel_white"
+                android:textSize="@dimen/text_pixel_xs"
+                tools:text="DESATIVAR"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

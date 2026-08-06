@@ -13,7 +13,7 @@ import com.example.bankchellengemobileapp.data.client.dto.AuthenticationRequestD
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.network.TokenManager
-import com.example.bankchellengemobileapp.ui.home.HomeActivity
+import com.example.bankchellengemobileapp.ui.main.MainActivity
 import com.example.bankchellengemobileapp.ui.register.AccountSetupActivity
 import com.example.bankchellengemobileapp.ui.register.RegisterActivity
 import kotlinx.coroutines.launch
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                             val destination = if (OnboardingManager.getPendingClientUuid(this@LoginActivity) != null) {
                                 AccountSetupActivity::class.java
                             } else {
-                                        HomeActivity::class.java
+                                        MainActivity::class.java
                             }
 
                             startActivity(Intent(this@LoginActivity, destination))

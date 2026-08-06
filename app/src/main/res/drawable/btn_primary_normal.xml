@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botao primario (preenchido branco) com sombra pixel dura -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/pixel_shadow_offset"
+        android:top="@dimen/pixel_shadow_offset">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pixel_muted" />
+        </shape>
+    </item>
+    <item
+        android:right="@dimen/pixel_shadow_offset"
+        android:bottom="@dimen/pixel_shadow_offset">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/pixel_white" />
+            <stroke
+                android:width="@dimen/pixel_border"
+                android:color="@color/pixel_white" />
+        </shape>
+    </item>
+</layer-list>

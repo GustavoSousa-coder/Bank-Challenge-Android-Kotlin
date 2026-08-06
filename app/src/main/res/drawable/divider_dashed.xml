@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Linha tracejada branca (separador do card de saldo) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+    <stroke
+        android:width="@dimen/pixel_border"
+        android:color="@color/pixel_muted"
+        android:dashWidth="4dp"
+        android:dashGap="3dp" />
+</shape>

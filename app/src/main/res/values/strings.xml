@@ -28,4 +28,156 @@
     <string name="title_account_setup">Confirme sua conta</string>
     <string name="description_account_setup">Clique no botão confirmar para criar sua conta bancária</string>
 
+    //--teste se fica ou não
+    //
+    //
+    //
+    //
+    <string name="header_greeting">OLA, BOM DIA</string>
+    <string name="header_user_name">Luis Gustavo</string>
+    <string name="cd_open_menu">Abrir menu</string>
+    <string name="cd_notifications">Ver notificacoes</string>
+
+    <!-- Card de saldo -->
+    <string name="balance_label">SALDO DISPONIVEL</string>
+    <string name="balance_value">R$ 4.827,90</string>
+    <string name="balance_hidden">R$ ••••••</string>
+    <string name="account_label">CONTA</string>
+    <string name="account_value">0001 / 45.892-0</string>
+    <string name="cd_show_balance">Mostrar saldo</string>
+    <string name="cd_hide_balance">Ocultar saldo</string>
+
+    <!-- Acoes -->
+    <string name="action_transfer">TRANSFERIR</string>
+    <string name="action_pix">PAGAR PIX</string>
+    <string name="action_virtual_card">CARTAO VIRTUAL</string>
+
+    <!-- Transacoes -->
+    <string name="transactions_title">TRANSACOES RECENTES</string>
+
+    <!-- Menu inferior -->
+    <string name="nav_home">INICIO</string>
+    <string name="nav_statement">EXTRATO</string>
+    <string name="nav_cards">CARTOES</string>
+    <string name="nav_profile">PERFIL</string>
+
+
+    <!-- ============ EXTRATO ============ -->
+    <string name="statement_title">EXTRATO</string>
+    <string name="statement_subtitle">Consulte suas movimentações escolhendo um período.</string>
+
+    <!-- Filtro -->
+    <string name="statement_filter_title">FILTRAR POR PERÍODO</string>
+    <string name="statement_period_legend">PERÍODO</string>
+    <string name="statement_amount_legend">QUANTIDADE</string>
+    <string name="statement_date_legend">DATA INICIAL</string>
+    <string name="statement_date_hint">Formato enviado: dd/MM/yyyy — não permite data futura</string>
+    <string name="statement_date_placeholder">DD/MM/AAAA</string>
+    <string name="statement_apply">APLICAR FILTRO</string>
+    <string name="statement_applying">BUSCANDO...</string>
+    <string name="statement_clear">LIMPAR FILTRO</string>
+
+    <!-- Rotulos de periodo (rotulo exibido; o enum permanece em ingles) -->
+    <string name="period_seconds">SEGUNDOS</string>
+    <string name="period_days">DIAS</string>
+    <string name="period_months">MESES</string>
+    <string name="period_years">ANOS</string>
+    <string name="period_from_date">A PARTIR DE UMA DATA</string>
+
+    <!-- Dicas por unidade -->
+    <string name="statement_hint_seconds">Ex.: últimos 30 segundos</string>
+    <string name="statement_hint_days">Ex.: últimos 7 dias</string>
+    <string name="statement_hint_months">Ex.: últimos 3 meses</string>
+    <string name="statement_hint_years">Ex.: último 1 ano</string>
+
+    <!-- Validacao -->
+    <string name="statement_error_amount">Informe um número inteiro maior ou igual a 1.</string>
+    <string name="statement_error_date_required">Selecione uma data.</string>
+    <string name="statement_error_date_future">A data não pode ser futura.</string>
+
+    <!-- Lista -->
+    <string name="statement_recent_title">ÚLTIMAS TRANSAÇÕES</string>
+    <string name="statement_label_incoming">ENTRADA</string>
+    <string name="statement_label_outgoing">SAÍDA</string>
+
+    <!-- Estados -->
+    <string name="statement_loading">BUSCANDO TRANSAÇÕES...</string>
+    <string name="statement_empty_title">NENHUMA TRANSAÇÃO ENCONTRADA</string>
+    <string name="statement_empty_desc">Não existem movimentações no período escolhido. Tente ajustar o filtro.</string>
+    <string name="statement_change_filter">ALTERAR FILTRO</string>
+    <string name="statement_error_title">FALHA AO BUSCAR</string>
+    <string name="statement_error_desc">Não foi possível carregar as transações. Verifique sua conexão e tente novamente.</string>
+    <string name="statement_retry">TENTAR NOVAMENTE</string>
+
+    <!-- Resumo do filtro aplicado -->
+    <string name="statement_summary_from_date">A partir de %1$s</string>
+
+    <!-- Acessibilidade -->
+    <string name="cd_statement_select_date">Selecionar data inicial</string>
+
+    <!-- Resumo relativo (plurais) -->
+    <plurals name="statement_summary_seconds">
+        <item quantity="one">Últimos %d segundo</item>
+        <item quantity="other">Últimos %d segundos</item>
+    </plurals>
+    <plurals name="statement_summary_days">
+        <item quantity="one">Últimos %d dia</item>
+        <item quantity="other">Últimos %d dias</item>
+    </plurals>
+    <plurals name="statement_summary_months">
+        <item quantity="one">Últimos %d mês</item>
+        <item quantity="other">Últimos %d meses</item>
+    </plurals>
+    <plurals name="statement_summary_years">
+        <item quantity="one">Último %d ano</item>
+        <item quantity="other">Últimos %d anos</item>
+    </plurals>
+
+    <!-- ============ CARTAO ============ -->
+    <string name="card_title">CARTAO VIRTUAL</string>
+
+    <!-- Estado sem cartao -->
+    <string name="card_empty_glyph">∅</string>
+    <string name="card_empty_title">SEM CARTAO</string>
+    <string name="card_empty_desc">Crie um cartão virtual para fazer compras online com segurança.</string>
+    <string name="card_action_create">CRIAR CARTAO</string>
+
+    <!-- Rotulos do cartao -->
+    <string name="card_label_number">NUMERO</string>
+    <string name="card_label_holder">TITULAR</string>
+    <string name="card_label_expiry">VALIDADE</string>
+    <string name="card_label_cvv">CVV</string>
+
+    <!-- Mascaras (o numero e o CVV ficam ocultos por padrao) -->
+    <string name="card_number_masked">•••• •••• •••• %1$s</string>
+    <string name="card_cvv_masked">•••</string>
+
+    <!-- Status -->
+    <string name="card_status_active">ATIVO</string>
+    <string name="card_status_blocked">BLOQUEADO</string>
+    <string name="card_blocked_notice">Cartão bloqueado. Não pode ser utilizado até ser desbloqueado.</string>
+
+    <!-- Acoes -->
+    <string name="card_action_block">BLOQUEAR CARTAO</string>
+    <string name="card_action_unblock">DESBLOQUEAR CARTAO</string>
+    <string name="card_action_delete">EXCLUIR CARTAO</string>
+
+    <!-- Estado carregando / erro -->
+    <string name="card_loading">PROCESSANDO...</string>
+    <string name="card_error_title">ALGO DEU ERRADO</string>
+    <string name="card_error_desc">Não foi possível concluir a operação. Verifique sua conexão e tente novamente.</string>
+    <string name="card_retry">TENTAR NOVAMENTE</string>
+
+    <!-- Dialogo de exclusao -->
+    <string name="card_delete_title">CONFIRMAR EXCLUSAO</string>
+    <string name="card_delete_desc">Tem certeza que deseja excluir este cartão? Esta ação não pode ser desfeita.</string>
+    <string name="card_delete_cancel">CANCELAR</string>
+    <string name="card_delete_confirm">EXCLUIR</string>
+
+    <!-- Acessibilidade -->
+    <string name="cd_show_number">Mostrar número do cartão</string>
+    <string name="cd_hide_number">Ocultar número do cartão</string>
+    <string name="cd_show_cvv">Mostrar CVV</string>
+    <string name="cd_hide_cvv">Ocultar CVV</string>
+
 </resources>

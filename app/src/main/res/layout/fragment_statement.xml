@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tela de Extrato. Espelha o prototipo React (pixel-statement-content + bottom nav).
+  Estrutura igual a Home: conteudo rolavel (NestedScrollView) + menu inferior fixo.
+  O cabecalho (titulo, filtro, resumo, estados) vem de item_statement_header via include;
+  a lista de transacoes fica logo abaixo, com nestedScrollingEnabled=false.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pixel_black"
+    android:fitsSystemWindows="true">
+
+    <!-- ============ CONTEUDO ROLAVEL ============ -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_xl"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Cabecalho: titulo + filtro + resumo + estados -->
+            <include
+                android:id="@+id/statement_header"
+                layout="@layout/item_statement_header" />
+
+            <!-- Lista de transacoes (visivel apenas no estado de sucesso) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/statement_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_lg"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_statement_transaction" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ MENU INFERIOR (fixo) ============ -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pixel_black"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pixel_border"
+            android:background="@color/pixel_white" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
