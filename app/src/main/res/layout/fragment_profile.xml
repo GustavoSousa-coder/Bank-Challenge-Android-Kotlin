@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Tela de Perfil. Espelha o prototipo React aprovado (pixel-profile-management
-  + pixel-profile-avatar + pixel-profile-personal-data + pixel-profile-security
-  + pixel-profile-actions), sem redesenhar. Contem apenas o conteudo da
-  Fragment: a barra de navegacao inferior pertence a Activity e nao e
-  duplicada aqui (mesmo padrao de fragment_card.xml).
-
-  Estrutura: conteudo rolavel (NestedScrollView) com tres containers de estado
-  (carregando, erro, conteudo) alternados por visibilidade; dois overlays
-  (editar e-mail e confirmacao) ficam por cima de tudo, fora do scroll.
--->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,7 +23,6 @@
             android:orientation="vertical"
             android:paddingBottom="@dimen/space_xl">
 
-            <!-- ==== Titulo da tela ==== -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +35,6 @@
                 android:textColor="@color/pixel_white"
                 android:textSize="@dimen/text_pixel_md" />
 
-            <!-- ============ ESTADO: CARREGANDO ============ -->
             <LinearLayout
                 android:id="@+id/state_loading"
                 android:layout_width="match_parent"
@@ -74,7 +61,6 @@
                     tools:ignore="HardcodedText" />
             </LinearLayout>
 
-            <!-- ============ ESTADO: ERRO ============ -->
             <LinearLayout
                 android:id="@+id/state_error"
                 android:layout_width="match_parent"
@@ -138,7 +124,6 @@
                     app:iconTint="@color/pixel_black" />
             </LinearLayout>
 
-            <!-- ============ ESTADO: CONTEUDO ============ -->
             <LinearLayout
                 android:id="@+id/state_content"
                 android:layout_width="match_parent"
@@ -147,7 +132,6 @@
                 android:visibility="gone"
                 tools:visibility="visible">
 
-                <!-- ==== Cabecalho: avatar + nome + status ==== -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -156,7 +140,6 @@
                     android:paddingTop="@dimen/space_xl"
                     android:paddingBottom="@dimen/space_lg">
 
-                    <!-- Avatar pixelado com iniciais + indicador de status -->
                     <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -208,7 +191,6 @@
                         tools:text="CLIENTE ATIVO" />
                 </LinearLayout>
 
-                <!-- Aviso de conta inativa -->
                 <TextView
                     android:id="@+id/tv_inactive_banner"
                     android:layout_width="match_parent"
@@ -227,7 +209,6 @@
                     android:visibility="gone"
                     tools:visibility="visible" />
 
-                <!-- Divisor tracejado -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/pixel_border"
@@ -235,7 +216,6 @@
                     android:layerType="software"
                     android:background="@drawable/divider_dashed" />
 
-                <!-- E-mail cadastrado (informacao do cabecalho) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -260,7 +240,6 @@
                         tools:text="mariana.silva@example.com" />
                 </LinearLayout>
 
-                <!-- ==== Card: Dados pessoais ==== -->
                 <TextView
                     style="@style/PixelText.Xs"
                     android:layout_width="wrap_content"
@@ -282,7 +261,6 @@
                     android:paddingEnd="@dimen/space_lg"
                     android:paddingBottom="@dimen/space_lg">
 
-                    <!-- Nome (somente leitura) -->
                     <TextView
                         style="@style/PixelText.Micro"
                         android:layout_width="wrap_content"
@@ -304,7 +282,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- E-mail (editavel) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -345,7 +322,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- CPF mascarado (somente leitura) -->
                     <TextView
                         style="@style/PixelText.Micro"
                         android:layout_width="wrap_content"
@@ -367,7 +343,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- Data de nascimento (somente leitura) -->
                     <TextView
                         style="@style/PixelText.Micro"
                         android:layout_width="wrap_content"
@@ -389,7 +364,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- Status -->
                     <TextView
                         style="@style/PixelText.Micro"
                         android:layout_width="wrap_content"
@@ -406,7 +380,6 @@
                         tools:text="ATIVO" />
                 </LinearLayout>
 
-                <!-- ==== Card: Seguranca e preferencias ==== -->
                 <TextView
                     style="@style/PixelText.Xs"
                     android:layout_width="wrap_content"
@@ -428,7 +401,6 @@
                     android:paddingEnd="@dimen/space_lg"
                     android:paddingBottom="@dimen/space_lg">
 
-                    <!-- Alterar senha -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_change_password"
                         style="@style/PixelButton"
@@ -447,7 +419,6 @@
                         app:iconSize="@dimen/icon_size_lg"
                         app:iconTint="@color/pixel_white" />
 
-                    <!-- Biometria -->
                     <include
                         android:id="@+id/row_biometry"
                         layout="@layout/item_profile_action"
@@ -455,7 +426,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_md" />
 
-                    <!-- Notificacoes -->
                     <include
                         android:id="@+id/row_notifications"
                         layout="@layout/item_profile_action"
@@ -463,7 +433,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_md" />
 
-                    <!-- Ocultar saldo -->
                     <include
                         android:id="@+id/row_hide_balance"
                         layout="@layout/item_profile_action"
@@ -472,7 +441,6 @@
                         android:layout_marginTop="@dimen/space_md" />
                 </LinearLayout>
 
-                <!-- ==== Acoes da conta ==== -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_logout"
                     style="@style/PixelButton"
@@ -502,7 +470,7 @@
                     android:layout_marginStart="@dimen/space_lg"
                     android:layout_marginTop="@dimen/space_md"
                     android:layout_marginEnd="@dimen/space_lg"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                     android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                     android:text="@string/profile_deactivate"
@@ -515,7 +483,6 @@
                     app:iconTint="@color/pixel_red"
                     tools:ignore="RtlSymmetry" />
 
-                <!-- Rodape com versao -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/pixel_border"
@@ -537,7 +504,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ============ OVERLAY: EDITAR EMAIL ============ -->
     <include
         android:id="@+id/edit_email_overlay"
         layout="@layout/dialog_edit_email"
@@ -547,7 +513,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ============ OVERLAY: CONFIRMACAO ============ -->
     <include
         android:id="@+id/confirm_overlay"
         layout="@layout/view_profile_confirm_dialog"

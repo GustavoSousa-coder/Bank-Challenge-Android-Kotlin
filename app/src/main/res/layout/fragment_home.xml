@@ -23,7 +23,7 @@
             style="@style/PixelButton"
             android:layout_width="@dimen/icon_button_size"
             android:layout_height="@dimen/icon_button_size"
-            android:background="@drawable/seletor_btn_secondary"
+            android:background="@drawable/selector_btn_secondary"
             android:contentDescription="@string/cd_open_menu"
             app:icon="@drawable/ic_menu"
             app:iconGravity="textStart"
@@ -63,7 +63,7 @@
                 style="@style/PixelButton"
                 android:layout_width="@dimen/icon_button_size"
                 android:layout_height="@dimen/icon_button_size"
-                android:background="@drawable/seletor_btn_secondary"
+                android:background="@drawable/selector_btn_secondary"
                 android:contentDescription="@string/cd_notifications"
                 app:icon="@drawable/ic_bell"
                 app:iconGravity="textStart"
@@ -82,7 +82,6 @@
         </FrameLayout>
     </LinearLayout>
 
-    <!-- ============ CONTEUDO ROLAVEL ============ -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/content_scroll"
         android:layout_width="match_parent"
@@ -126,7 +125,7 @@
                         style="@style/PixelButton"
                         android:layout_width="@dimen/icon_button_small"
                         android:layout_height="@dimen/icon_button_small"
-                        android:background="@drawable/seletor_btn_secondary"
+                        android:background="@drawable/selector_btn_secondary"
                         android:contentDescription="@string/cd_hide_balance"
                         app:icon="@drawable/ic_eye"
                         app:iconGravity="textStart"
@@ -209,7 +208,7 @@
                     android:layout_height="@dimen/action_box_height"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/space_md"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
@@ -239,7 +238,7 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/action_box_height"
                     android:layout_weight="1"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"

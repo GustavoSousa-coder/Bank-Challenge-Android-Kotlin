@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Overlay de confirmacao reutilizavel (sair / desativar conta), no estilo
-  pixel 8/16-bit. Titulo, descricao, cor e rotulo do botao de confirmacao sao
-  definidos pela ProfileFragment conforme a acao. A raiz cobre a tela com um
-  veu escuro; a Fragment controla a visibilidade.
--->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -56,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dialog_button_height"
                 android:layout_weight="1"
-                android:background="@drawable/seletor_btn_secondary"
+                android:background="@drawable/selector_btn_secondary"
                 android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                 android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                 android:text="@string/profile_dialog_cancel"
@@ -71,7 +64,7 @@
                 android:layout_height="@dimen/dialog_button_height"
                 android:layout_marginStart="@dimen/space_md"
                 android:layout_weight="1"
-                android:background="@drawable/seletor_btn_secondary"
+                android:background="@drawable/selector_btn_secondary"
                 android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                 android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                 android:textColor="@color/pixel_white"

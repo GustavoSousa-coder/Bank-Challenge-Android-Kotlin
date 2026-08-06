@@ -1,95 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/black_pure">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_pure"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:gravity="center"
+        android:text="@string/login_title"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:gravity="center"
-            android:text="@string/login_title"
-            android:textAlignment="center"
-            android:textSize="45sp" />
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:text="@string/description_sub_title"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:text="@string/description_sub_title"
-            android:textAlignment="center"
-            android:textSize="25sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_button_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
 
-        <EditText
-            android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:background="@drawable/bg_edittext_8bit"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:layerType="software"
-            android:padding="20dp"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_light_background"
-            android:textSize="20sp" />
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_edittext_8bit"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:layerType="software"
+        android:padding="20dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_light_background"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/editSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_edittext_8bit"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:hint="@string/senha"
-            android:inputType="textPassword"
-            android:layerType="software"
-            android:padding="20dp"
-            android:textColor="@color/cardview_dark_background"
-            android:textColorHint="@color/cardview_light_background"
-            android:textSize="20sp" />
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext_8bit"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:layerType="software"
+        android:padding="20dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_light_background"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/editEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/btnEntrar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_weight="0.3"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:gravity="center"
-            android:text="@string/button_entrar"
-            android:textSize="20sp"
-            app:backgroundTint="@color/white"
-            app:cornerRadius="5dp"
-            app:shapeAppearanceOverlay="@style/RoundedCorners" />
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="24dp"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:gravity="center"
+        android:text="@string/button_entrar"
+        android:textSize="20sp"
+        android:background="@drawable/selector_btn_primary"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="5dp"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        app:layout_constraintTop_toTopOf="@id/guideline_button_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/txtCadastro"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.4"
-            android:clickable="true"
-            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
-            android:gravity="center"
-            android:text="@string/text_view_cadastro_login"
-            android:textAlignment="center"
-            android:textSize="15sp" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txtCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:gravity="center"
+        android:text="@string/text_view_cadastro_login"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        tools:ignore="KeyboardInaccessibleWidget"
+        app:layout_constraintTop_toBottomOf="@id/btnEntrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

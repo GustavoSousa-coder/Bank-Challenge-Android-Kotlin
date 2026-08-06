@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Tela de Cartao. Espelha o prototipo React aprovado (pixel-card-management +
-  pixel-card-display). Contem apenas o conteudo da Fragment: a barra de
-  navegacao inferior pertence a Activity e nao e duplicada aqui.
-
-  Estrutura: conteudo rolavel (NestedScrollView) com quatro containers de
-  estado (carregando, sem cartao, cartao, erro) alternados por visibilidade,
-  mais um overlay de confirmacao de exclusao por cima de tudo.
--->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,7 +23,6 @@
             android:orientation="vertical"
             android:paddingBottom="@dimen/space_xl">
 
-            <!-- ==== Titulo da tela ==== -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +35,6 @@
                 android:textColor="@color/pixel_white"
                 android:textSize="@dimen/text_pixel_md" />
 
-            <!-- ============ ESTADO: CARREGANDO ============ -->
             <LinearLayout
                 android:id="@+id/state_loading"
                 android:layout_width="match_parent"
@@ -67,7 +56,6 @@
                     android:textColor="@color/pixel_muted" />
             </LinearLayout>
 
-            <!-- ============ ESTADO: SEM CARTAO ============ -->
             <LinearLayout
                 android:id="@+id/state_no_card"
                 android:layout_width="match_parent"
@@ -81,7 +69,6 @@
                 android:visibility="gone"
                 tools:visibility="gone">
 
-                <!-- Caixa do glifo vazio -->
                 <FrameLayout
                     android:layout_width="@dimen/card_empty_box"
                     android:layout_height="@dimen/card_empty_box"
@@ -134,7 +121,6 @@
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
-            <!-- ============ ESTADO: CARTAO (ativo/bloqueado) ============ -->
             <LinearLayout
                 android:id="@+id/state_active"
                 android:layout_width="match_parent"
@@ -144,7 +130,6 @@
                 android:visibility="gone"
                 tools:visibility="visible">
 
-                <!-- ==== Face do cartao ==== -->
                 <LinearLayout
                     android:id="@+id/card_root"
                     android:layout_width="match_parent"
@@ -158,7 +143,6 @@
                     android:paddingEnd="@dimen/space_xl"
                     android:paddingBottom="@dimen/space_xl">
 
-                    <!-- Chip -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -182,7 +166,6 @@
                             android:background="@drawable/bg_card_chip" />
                     </LinearLayout>
 
-                    <!-- Numero + revelar -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -225,7 +208,6 @@
                             app:tint="@color/pixel_white" />
                     </LinearLayout>
 
-                    <!-- Divisor tracejado -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/pixel_border"
@@ -233,7 +215,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- Titular + validade -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -283,7 +264,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- Divisor tracejado -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/pixel_border"
@@ -291,7 +271,6 @@
                         android:layerType="software"
                         android:background="@drawable/divider_dashed" />
 
-                    <!-- CVV + revelar -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -334,14 +313,12 @@
                             app:tint="@color/pixel_white" />
                     </LinearLayout>
 
-                    <!-- Divisor solido -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/pixel_border"
                         android:layout_marginTop="@dimen/space_lg"
                         android:background="@color/pixel_muted" />
 
-                    <!-- Status -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -366,7 +343,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Aviso de cartao bloqueado -->
                 <TextView
                     android:id="@+id/tv_blocked_notice"
                     style="@style/BodyText"
@@ -381,7 +357,6 @@
                     android:visibility="gone"
                     tools:visibility="gone" />
 
-                <!-- ==== Acoes ==== -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_block"
                     style="@style/PixelButton"
@@ -390,7 +365,7 @@
                     android:layout_marginStart="@dimen/space_lg"
                     android:layout_marginTop="@dimen/space_lg"
                     android:layout_marginEnd="@dimen/space_lg"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                     android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                     android:text="@string/card_action_block"
@@ -411,7 +386,7 @@
                     android:layout_marginStart="@dimen/space_lg"
                     android:layout_marginTop="@dimen/space_md"
                     android:layout_marginEnd="@dimen/space_lg"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                     android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                     android:text="@string/card_action_delete"
@@ -425,7 +400,6 @@
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
-            <!-- ============ ESTADO: ERRO ============ -->
             <LinearLayout
                 android:id="@+id/state_error"
                 android:layout_width="match_parent"
@@ -471,7 +445,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/secondary_button_height"
                     android:layout_marginTop="@dimen/space_lg"
-                    android:background="@drawable/seletor_btn_secondary"
+                    android:background="@drawable/selector_btn_secondary"
                     android:paddingStart="@dimen/space_lg"
                     android:paddingEnd="@dimen/space_lg"
                     android:text="@string/card_retry"
@@ -486,7 +460,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ============ OVERLAY: CONFIRMAR EXCLUSAO ============ -->
     <include
         android:id="@+id/delete_overlay"
         layout="@layout/view_card_delete_dialog"

@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Linha reutilizavel de preferencia (icone + rotulo + SwitchMaterial) do card
-  de Seguranca e Preferencias do Perfil. Incluida varias vezes via <include>;
-  icone, rotulo e estado do switch sao definidos pela ProfileFragment.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

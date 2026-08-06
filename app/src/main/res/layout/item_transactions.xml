@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/space_md">
 
-        <!-- Caixa do icone -->
         <FrameLayout
             android:id="@+id/transaction_icon_box"
             android:layout_width="@dimen/icon_box_size"
@@ -35,7 +34,6 @@
                 tools:src="@drawable/ic_shoping_bag" />
         </FrameLayout>
 
-        <!-- Nome -->
         <TextView
             android:id="@+id/transaction_name"
             style="@style/PixelText.Sm"
@@ -50,7 +48,6 @@
             app:layout_constraintTop_toTopOf="@id/transaction_icon_box"
             tools:text="SUPERMERCADO BOM PRECO" />
 
-        <!-- Tipo -->
         <TextView
             android:id="@+id/transaction_type"
             style="@style/BodyText"
@@ -66,7 +63,6 @@
             app:layout_constraintTop_toBottomOf="@id/transaction_name"
             tools:text="Compra no debito" />
 
-        <!-- Data -->
         <TextView
             android:id="@+id/transaction_date"
             style="@style/PixelText.Micro"
@@ -81,7 +77,6 @@
             app:layout_constraintBottom_toBottomOf="@id/transaction_icon_box"
             tools:text="01 AGO • 14:32" />
 
-        <!-- Valor -->
         <TextView
             android:id="@+id/transaction_amount"
             style="@style/PixelText.Sm"

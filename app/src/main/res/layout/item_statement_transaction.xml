@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Item de transacao do Extrato. Espelha PixelTransactionItem (showDirection=true):
-  icone, nome, tipo, data/hora, status, etiqueta ENTRADA/SAIDA (texto + seta) e
-  valor com sinal. A direcao nunca depende apenas de cor.
--->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +15,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/space_md">
 
-        <!-- Caixa do icone -->
         <FrameLayout
             android:id="@+id/transaction_icon_box"
             android:layout_width="@dimen/icon_box_size"
@@ -40,7 +34,6 @@
                 tools:src="@drawable/ic_arrow_down_left" />
         </FrameLayout>
 
-        <!-- Coluna direita: direcao + valor -->
         <LinearLayout
             android:id="@+id/transaction_amount_column"
             android:layout_width="wrap_content"
@@ -85,7 +78,6 @@
                 tools:textColor="@color/pixel_green" />
         </LinearLayout>
 
-        <!-- Nome -->
         <TextView
             android:id="@+id/transaction_name"
             style="@style/PixelText.Sm"
@@ -99,7 +91,6 @@
             app:layout_constraintTop_toTopOf="@id/transaction_icon_box"
             tools:text="PIX RECEBIDO — LUCAS" />
 
-        <!-- Tipo -->
         <TextView
             android:id="@+id/transaction_type"
             style="@style/BodyText"
@@ -114,7 +105,6 @@
             app:layout_constraintTop_toBottomOf="@id/transaction_name"
             tools:text="Pix recebido" />
 
-        <!-- Data + status -->
         <LinearLayout
             android:id="@+id/transaction_meta"
             android:layout_width="0dp"

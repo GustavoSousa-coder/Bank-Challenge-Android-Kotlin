@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Cabecalho do Extrato (rola junto com a lista via ConcatAdapter).
-  Contem: titulo, card de filtro (chips de periodo + quantidade/data + acoes),
-  resumo do filtro aplicado, titulo da secao e os containers de estado
-  (carregando, vazio, erro). A lista de transacoes vem logo abaixo, no RecyclerView.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +8,6 @@
     android:orientation="vertical"
     android:paddingBottom="@dimen/space_md">
 
-    <!-- ==== Titulo da tela (sem App Bar) ==== -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +31,6 @@
         android:text="@string/statement_subtitle"
         style="@style/BodyText" />
 
-    <!-- ==== Card de filtro (com sombra pixel) ==== -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +44,6 @@
         android:paddingEnd="@dimen/space_xl"
         android:paddingBottom="@dimen/space_xl">
 
-        <!-- Cabecalho do card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,7 +68,6 @@
                 android:textColor="@color/pixel_muted" />
         </LinearLayout>
 
-        <!-- Legenda PERIODO -->
         <TextView
             style="@style/PixelText.Xs"
             android:layout_width="wrap_content"
@@ -86,7 +76,6 @@
             android:text="@string/statement_period_legend"
             android:textSize="16sp"/>
 
-        <!-- Chips de periodo (selecao unica, quebra em varias linhas) -->
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group"
             android:layout_width="match_parent"
@@ -133,7 +122,6 @@
                 android:text="@string/period_from_date" />
         </com.google.android.material.chip.ChipGroup>
 
-        <!-- Campo QUANTIDADE (filtros relativos) -->
         <LinearLayout
             android:id="@+id/filter_amount_group"
             android:layout_width="match_parent"
@@ -187,7 +175,6 @@
                 tools:visibility="visible" />
         </LinearLayout>
 
-        <!-- Campo DATA (FROM_DATE) -->
         <LinearLayout
             android:id="@+id/filter_date_group"
             android:layout_width="match_parent"
@@ -241,7 +228,6 @@
                 tools:visibility="visible" />
         </LinearLayout>
 
-        <!-- Botao APLICAR -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_apply"
             style="@style/PixelButton"
@@ -261,7 +247,6 @@
             app:iconTint="@color/pixel_black"
             tools:ignore="RtlSymmetry" />
 
-        <!-- Botao LIMPAR -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_clear"
             style="@style/Widget.Material3.Button.TextButton"
@@ -275,7 +260,6 @@
             app:rippleColor="@color/pixel_surface" />
     </LinearLayout>
 
-    <!-- ==== Resumo do filtro aplicado ==== -->
     <LinearLayout
         android:id="@+id/summary_container"
         android:layout_width="match_parent"
@@ -301,7 +285,6 @@
             tools:text="Últimos 7 dias" />
     </LinearLayout>
 
-    <!-- ==== Titulo da secao ==== -->
     <TextView
         android:id="@+id/statement_section_title"
         style="@style/PixelText.Sm"
@@ -314,7 +297,6 @@
         android:textSize="20sp"
         android:textColor="@color/pixel_muted" />
 
-    <!-- ==== Estado: CARREGANDO ==== -->
     <LinearLayout
         android:id="@+id/loading_container"
         android:layout_width="match_parent"
@@ -368,7 +350,6 @@
             android:textColor="@color/pixel_muted" />
     </LinearLayout>
 
-    <!-- ==== Estado: VAZIO ==== -->
     <LinearLayout
         android:id="@+id/empty_container"
         android:layout_width="match_parent"
@@ -430,7 +411,6 @@
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
-    <!-- ==== Estado: ERRO ==== -->
     <LinearLayout
         android:id="@+id/error_container"
         android:layout_width="match_parent"
