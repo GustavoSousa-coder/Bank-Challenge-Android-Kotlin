@@ -7,10 +7,12 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.bankchellengemobileapp.BuildConfig
 import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.ui.login.LoginActivity
+import com.example.bankchellengemobileapp.ui.main.MainActivity
 import kotlinx.coroutines.launch
 
 class AccountSetupActivity: AppCompatActivity() {
@@ -21,7 +23,6 @@ class AccountSetupActivity: AppCompatActivity() {
         setContentView(R.layout.activity_account_setup)
 
         val btnConfirm: Button = findViewById(R.id.btnConfirmar)
-
         val clientUuid = OnboardingManager.getPendingClientUuid(this)
 
         if (clientUuid == null) {
@@ -32,8 +33,12 @@ class AccountSetupActivity: AppCompatActivity() {
         }
 
         btnConfirm.setOnClickListener {
+            if (BuildConfig.SKIP_VALIDATION) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+                return@setOnClickListener
+            }
             val accountApi = RetrofitClient.getAccountApi(this)
-
             lifecycleScope.launch {
                 try {
                     val response = accountApi.save(clientUuid)

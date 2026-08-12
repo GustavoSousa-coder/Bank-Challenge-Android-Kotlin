@@ -179,5 +179,7 @@
     <string name="cd_hide_number">Ocultar número do cartão</string>
     <string name="cd_show_cvv">Mostrar CVV</string>
     <string name="cd_hide_cvv">Ocultar CVV</string>
+    <string name="pix_bank_online">PIX BANK // ONLINE</string>
+    <string name="carregando">CARREGANDO...</string>
 
 </resources>

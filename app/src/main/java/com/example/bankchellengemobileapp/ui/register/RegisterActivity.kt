@@ -1,6 +1,7 @@
 package com.example.bankchellengemobileapp.ui.register
 
 import android.content.Intent
+import com.example.bankchellengemobileapp.BuildConfig
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +15,7 @@ import com.example.bankchellengemobileapp.data.client.dto.ClientRequestDTO
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.ui.login.LoginActivity
+import com.example.bankchellengemobileapp.ui.main.MainActivity
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -37,8 +39,12 @@ class RegisterActivity : AppCompatActivity() {
 
         buttonRegister.setOnClickListener {
 
+            if (BuildConfig.SKIP_VALIDATION) {
+                startActivity(Intent(this, AccountSetupActivity::class.java))
+                finish()
+                return@setOnClickListener
+            }
             val dataEntered = listOf(name, cpf, dateOfBirth, email, password).all { it.text.toString().isNotBlank() }
-
             if (dataEntered) {
                 val dateConverted = try {
                     LocalDate.parse(

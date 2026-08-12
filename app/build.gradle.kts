@@ -15,6 +15,7 @@ android {
     defaultConfig {
         applicationId = "com.example.bankchellengemobileapp"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -38,6 +39,24 @@ android {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    flavorDimensions += "version"
+    productFlavors {
+        create("demo") {
+            dimension = "version"
+            applicationIdSuffix = ".demo"
+            versionNameSuffix = "-demo"
+            buildConfigField("boolean", "SKIP_VALIDATION", "true")
+        }
+        create("full") {
+            dimension = "version"
+            buildConfigField("boolean", "SKIP_VALIDATION", "false")
+        }
+    }
+
+    buildFeatures{
+        buildConfig = true
     }
 }
 

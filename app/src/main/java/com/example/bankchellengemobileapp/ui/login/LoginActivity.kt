@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.bankchellengemobileapp.BuildConfig
 import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.data.client.dto.AuthenticationRequestDTO
 import com.example.bankchellengemobileapp.network.OnboardingManager
@@ -32,6 +33,12 @@ class LoginActivity : AppCompatActivity() {
 
 
         buttonEnter.setOnClickListener {
+
+            if (BuildConfig.SKIP_VALIDATION) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+                return@setOnClickListener
+            }
 
             val dataEntered = listOf(login, password).all { it.text.toString().isNotBlank() }
 
