@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Indicador de status ATIVO: quadrado verde com borda branca reta (sem raio). -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="@color/pixel_green" />
-    <stroke
-        android:width="@dimen/pixel_border"
-        android:color="@color/pixel_white" />
-</shape>

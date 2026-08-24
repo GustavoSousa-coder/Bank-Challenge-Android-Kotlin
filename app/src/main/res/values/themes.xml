@@ -8,7 +8,7 @@
         <item name="colorSecondary">@color/silver_light</item>
         <item name="colorOnSecondary">@color/black_pure</item>
 
-        <item name="android:colorBackground">@color/black_pure</item>
+        <item name="android:colorBackground">@color/white</item>
         <item name="colorOnBackground">@color/silver_light</item>
 
         <item name="colorSurface">@color/black_soft</item>

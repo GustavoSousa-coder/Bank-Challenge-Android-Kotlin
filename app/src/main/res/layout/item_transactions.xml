@@ -19,7 +19,6 @@
             android:id="@+id/transaction_icon_box"
             android:layout_width="@dimen/icon_box_size"
             android:layout_height="@dimen/icon_box_size"
-            android:background="@drawable/bg_icon_box"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
