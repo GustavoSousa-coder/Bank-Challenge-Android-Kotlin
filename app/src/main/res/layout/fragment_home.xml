@@ -16,7 +16,6 @@
         android:paddingHorizontal="@dimen/space_lg"
         android:paddingTop="@dimen/space_xl"
         android:paddingBottom="@dimen/space_md"
-
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
@@ -44,6 +43,7 @@
                 style="@style/PixelText.Xs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/pixel_white"
                 android:text="@string/header_greeting" />
@@ -52,6 +52,7 @@
                 style="@style/PixelText.Md"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:textSize="25sp"
                 android:textColor="@color/pixel_white"
                 android:layout_marginTop="@dimen/space_xs"
@@ -130,6 +131,7 @@
                         android:layout_width="@dimen/icon_button_small"
                         android:layout_height="@dimen/icon_button_small"
                         android:contentDescription="@string/cd_hide_balance"
+                        android:background="@drawable/bg_rounded_borders"
                         app:icon="@drawable/ic_eye"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"

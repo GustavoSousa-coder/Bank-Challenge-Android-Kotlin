@@ -1,0 +1,5 @@
+<!-- res/drawable/bg_edit_photo_circle.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/black_pure" />
+    <stroke android:width="2dp" android:color="@color/white" />
+</shape>

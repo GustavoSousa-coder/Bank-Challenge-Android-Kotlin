@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,211 @@
     android:background="@color/white"
     android:fitsSystemWindows="true">
 
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xl"
+        android:layout_marginStart="@dimen/space_lg"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:text="Estatísticas"
+        android:textColor="@color/black_pure"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_period"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:paddingHorizontal="@dimen/space_lg"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        app:layout_constraintTop_toBottomOf="@id/text_title">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_day"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="Dia" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_week"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="Semana" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_month"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="Mês" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_year"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="Ano" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_custom"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="Personalizado" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <LinearLayout
+        android:id="@+id/custom_range_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_lg"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/chip_group_period"
+        tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/edit_date_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/space_sm"
+            android:background="@drawable/bg_input_field"
+            android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:gravity="center"
+            android:hint="DD/MM/AAAA"
+            android:inputType="number"
+            android:maxLength="10"
+            android:paddingVertical="@dimen/space_md"
+            android:textColor="@color/black_pure"
+            android:textColorHint="@color/gray_secondary"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:layout_marginHorizontal="@dimen/space_lg"
+        android:backgroundTint="@color/black_pure"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:paddingVertical="@dimen/space_md"
+        android:text="Buscar"
+        android:textColor="@color/white"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_search"
+        app:iconTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/custom_range_row" />
+
+    <LinearLayout
+        android:id="@+id/summary_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_lg"
+        app:layout_constraintTop_toBottomOf="@id/btn_search">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/space_sm"
+            android:background="@drawable/bg_profile_stat_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_md">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:text="Entradas"
+                android:textColor="@color/silver_pearl"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text_total_income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:text="R$ 0,00"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/space_sm"
+            android:background="@drawable/bg_profile_stat_card"
+            android:orientation="vertical"
+            android:padding="@dimen/space_md">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:text="Saídas"
+                android:textColor="@color/silver_pearl"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text_total_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:text="R$ 0,00"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_results"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_md"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/space_lg"
+        android:paddingBottom="@dimen/space_lg"
+        app:layout_constraintTop_toBottomOf="@id/summary_row"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_empty_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:text="Nenhuma transação encontrada para esse período"
+        android:textColor="@color/gray_secondary"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/summary_row"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="@dimen/space_lg"
         android:orientation="vertical"
+        android:background="@drawable/bg_rounded_borders"
         android:paddingStart="@dimen/space_xl"
         android:paddingTop="@dimen/space_xl"
         android:paddingEnd="@dimen/space_xl"
@@ -21,14 +22,14 @@
 
         <TextView
             style="@style/PixelText.Md"
-            android:textColor="@color/pixel_black"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/card_delete_title" />
 
         <TextView
             style="@style/BodyText"
-            android:textColor="@color/pixel_black"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_md"
@@ -52,6 +53,8 @@
                 android:text="@string/card_delete_cancel"
                 android:textColor="@color/pixel_white"
                 android:textSize="@dimen/text_pixel_xs"
+                android:background="@drawable/bg_rounded_borders"
+                android:backgroundTint="@color/black_soft"
                 tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.button.MaterialButton
@@ -61,7 +64,8 @@
                 android:layout_height="@dimen/dialog_button_height"
                 android:layout_marginStart="@dimen/space_md"
                 android:layout_weight="1"
-
+                android:background="@drawable/bg_rounded_borders"
+                android:backgroundTint="@color/black_soft"
                 android:paddingEnd="@dimen/pixel_shadow_offset_sm"
                 android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                 android:text="@string/card_delete_confirm"

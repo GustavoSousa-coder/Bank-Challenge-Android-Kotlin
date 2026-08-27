@@ -16,7 +16,8 @@
         android:paddingStart="@dimen/space_xl"
         android:paddingTop="@dimen/space_xl"
         android:paddingEnd="@dimen/space_xl"
-        android:paddingBottom="@dimen/space_xl">
+        android:paddingBottom="@dimen/space_xl"
+        android:background="@drawable/bg_rounded_borders">
 
         <TextView
             android:id="@+id/confirm_title"
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/space_sm"
             android:gravity="center_vertical"
-            android:textColor="@color/pixel_black"
+            android:textColor="@color/white"
             tools:text="DESATIVAR CONTA" />
 
         <TextView
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_md"
             android:lineSpacingMultiplier="1.1"
-            android:textColor="@color/pixel_black"
+            android:textColor="@color/white"
             tools:text="Deseja sair da sua conta?" />
 
         <LinearLayout
@@ -55,6 +56,8 @@
                 android:text="@string/profile_dialog_cancel"
                 android:textColor="@color/pixel_white"
                 android:textSize="@dimen/text_pixel_xs"
+                android:background="@drawable/bg_rounded_borders"
+                android:backgroundTint="@color/black_soft"
                 tools:ignore="RtlSymmetry" />
 
             <com.google.android.material.button.MaterialButton
@@ -68,6 +71,8 @@
                 android:paddingBottom="@dimen/pixel_shadow_offset_sm"
                 android:textColor="@color/pixel_white"
                 android:textSize="@dimen/text_pixel_xs"
+                android:background="@drawable/bg_rounded_borders"
+                android:backgroundTint="@color/black_soft"
                 tools:text="DESATIVAR"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
