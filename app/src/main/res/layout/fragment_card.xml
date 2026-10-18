@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_xl"
         android:layout_marginStart="@dimen/space_lg"
-        android:text="Meus cartões"
+        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:text="@string/meus_cart_es"
         android:textColor="@color/black_pure"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -58,8 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/space_sm"
-            android:text="Bloquear"
             android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="@string/bloquear"
             android:textColor="@color/black_pure"
             app:strokeColor="@color/black_pure" />
 
@@ -70,8 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="@dimen/space_sm"
-            android:text="Configurações"
             android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+            android:text="@string/configura_es"
             android:textColor="@color/black_pure"
             app:strokeColor="@color/black_pure" />
 
@@ -84,10 +84,10 @@
         android:layout_marginHorizontal="@dimen/space_lg"
         android:layout_marginTop="@dimen/space_xl"
         android:backgroundTint="@color/black_pure"
-        android:paddingVertical="@dimen/space_md"
-        android:text="+ Adicionar novo cartão"
-        android:textColor="@color/white"
         android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+        android:paddingVertical="@dimen/space_md"
+        android:text="@string/adicionar_novo_cart_o"
+        android:textColor="@color/white"
         app:cornerRadius="16dp"
         app:layout_constraintTop_toBottomOf="@id/actions_row" />
 

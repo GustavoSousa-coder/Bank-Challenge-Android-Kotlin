@@ -11,6 +11,14 @@
     <string name="button_entrar">Entrar</string>
     <string name="confirmar">Confirmar</string>
 
+    //--cards
+    <string name="toggle_card_number">Mostrar ou ocultar número do cartão</string>
+    <string name="copy_card_number">Copiar número do cartão</string>
+    <string name="toggle_cvv">Mostrar ou ocultar CVV</string>
+    <string name="copy_cvv">Copiar CVV</string>
+    <string name="copy_holder_name">Copiar nome do titular</string>
+    <string name="copy_expiration">Copiar data de validade</string>
+
     //--activity_splash
     <string name="seu_banco_digital">Seu Banco Digital</string>
 
@@ -181,5 +189,15 @@
     <string name="cd_hide_cvv">Ocultar CVV</string>
     <string name="pix_bank_online">PIX BANK // ONLINE</string>
     <string name="carregando">CARREGANDO...</string>
+    <string name="configura_es">Configurações</string>
+    <string name="adicionar_novo_cart_o">+ Adicionar novo cartão</string>
+    <string name="bloquear">Bloquear</string>
+    <string name="meus_cart_es">Meus cartões</string>
+    <string name="ativo">Ativo</string>
+    <string name="_4821">•••• •••• •••• 4821</string>
+    <string name="cvv">CVV</string>
+    <string name="pontos">•••</string>
+    <string name="titular">Titular</string>
+    <string name="validade">Validade</string>
 
 </resources>

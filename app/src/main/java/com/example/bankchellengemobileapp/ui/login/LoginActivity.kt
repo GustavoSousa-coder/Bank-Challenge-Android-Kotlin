@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.bankchellengemobileapp.BuildConfig
 import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.data.client.dto.AuthenticationRequestDTO
+import com.example.bankchellengemobileapp.data.enums.AccountStatus
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
 import com.example.bankchellengemobileapp.network.TokenManager
@@ -18,7 +19,8 @@ import com.example.bankchellengemobileapp.ui.main.MainActivity
 import com.example.bankchellengemobileapp.ui.register.AccountSetupActivity
 import com.example.bankchellengemobileapp.ui.register.RegisterActivity
 import kotlinx.coroutines.launch
-import kotlin.jvm.java
+import kotlin.coroutines.cancellation.CancellationException
+import java.util.UUID
 
 class LoginActivity : AppCompatActivity() {
 
@@ -62,10 +64,11 @@ class LoginActivity : AppCompatActivity() {
                         val authResponse = response.body()
                         if (authResponse != null) {
                             TokenManager.saveSession(this@LoginActivity, authResponse.token, authResponse.uuid)
-                            val destination = if (OnboardingManager.getPendingClientUuid(this@LoginActivity) != null) {
-                                AccountSetupActivity::class.java
-                            } else {
-                                        MainActivity::class.java
+                            val destination = destinationAfterLogin(authResponse.uuid)
+                            if (destination == null) {
+                                TokenManager.clearToken(this@LoginActivity)
+                                Toast.makeText(this@LoginActivity, "Não foi possível carregar sua conta. Tente novamente.", Toast.LENGTH_SHORT).show()
+                                return@launch
                             }
 
                             startActivity(Intent(this@LoginActivity, destination))
@@ -74,10 +77,16 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(this@LoginActivity, "Login ou senha inválidos", Toast.LENGTH_SHORT).show()
                     }
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
+                    TokenManager.clearToken(this@LoginActivity)
                     Toast.makeText(this@LoginActivity, "Erro de conexão: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+
+
+
         }
 
         txtCadastro.setOnClickListener {
@@ -85,5 +94,18 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+    private suspend fun destinationAfterLogin(clientUuid: UUID): Class<*>? {
+        val response = RetrofitClient.getAccountApi(this).getAllByClientId(clientUuid)
+        if (!response.isSuccessful) return null
+
+        val account = response.body()?.firstOrNull { it.status == AccountStatus.ACTIVE }
+            ?: return AccountSetupActivity::class.java
+
+        TokenManager.saveAccountId(this, account.uuid)
+        OnboardingManager.clearPendingClientUuid(this)
+        return MainActivity::class.java
+    }
+
 
 }

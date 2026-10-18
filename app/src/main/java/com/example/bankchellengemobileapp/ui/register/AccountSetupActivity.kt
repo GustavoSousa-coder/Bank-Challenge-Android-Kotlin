@@ -11,6 +11,7 @@ import com.example.bankchellengemobileapp.BuildConfig
 import com.example.bankchellengemobileapp.R
 import com.example.bankchellengemobileapp.network.OnboardingManager
 import com.example.bankchellengemobileapp.network.RetrofitClient
+import com.example.bankchellengemobileapp.network.TokenManager
 import com.example.bankchellengemobileapp.ui.login.LoginActivity
 import com.example.bankchellengemobileapp.ui.main.MainActivity
 import kotlinx.coroutines.launch
@@ -23,7 +24,7 @@ class AccountSetupActivity: AppCompatActivity() {
         setContentView(R.layout.activity_account_setup)
 
         val btnConfirm: Button = findViewById(R.id.btnConfirmar)
-        val clientUuid = OnboardingManager.getPendingClientUuid(this)
+        val clientUuid = TokenManager.getClientUuid(this) ?: OnboardingManager.getPendingClientUuid(this)
 
         if (clientUuid == null) {
             Toast.makeText(this, "Nenhum cadastro pendente encontrado", Toast.LENGTH_SHORT).show()
@@ -43,10 +44,12 @@ class AccountSetupActivity: AppCompatActivity() {
                 try {
                     val response = accountApi.save(clientUuid)
 
-                    if (response.isSuccessful) {
+                    val account = response.body()
+                    if (response.isSuccessful && account != null) {
+                        TokenManager.saveAccountId(this@AccountSetupActivity, account.uuid)
                         OnboardingManager.clearPendingClientUuid(this@AccountSetupActivity)
                         Toast.makeText(this@AccountSetupActivity, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@AccountSetupActivity, LoginActivity::class.java))
+                        startActivity(Intent(this@AccountSetupActivity, MainActivity::class.java))
                         finish()
                     } else {
                         Toast.makeText(this@AccountSetupActivity, "Erro ao criar conta", Toast.LENGTH_SHORT).show()

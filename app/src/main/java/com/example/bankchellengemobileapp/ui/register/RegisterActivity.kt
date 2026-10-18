@@ -44,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
                 return@setOnClickListener
             }
+
             val dataEntered = listOf(name, cpf, dateOfBirth, email, password).all { it.text.toString().isNotBlank() }
             if (dataEntered) {
                 val dateConverted = try {

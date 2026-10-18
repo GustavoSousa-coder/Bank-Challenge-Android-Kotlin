@@ -1,9 +1,13 @@
 package com.example.bankchellengemobileapp.network
 
 import android.content.Context
+import com.example.bankchellengemobileapp.network.interfaceApiServices.CardApiService
 import com.example.bankchellengemobileapp.network.interfaceApiServices.AccountApiService
 import com.example.bankchellengemobileapp.network.interfaceApiServices.ClientApiService
 import com.example.bankchellengemobileapp.network.interfaceApiServices.ClientLoginApiService
+import com.example.bankchellengemobileapp.network.interfaceApiServices.PixKeyApiService
+import com.example.bankchellengemobileapp.network.interfaceApiServices.StatisticsApiService
+import com.example.bankchellengemobileapp.network.interfaceApiServices.TransactionApiService
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonPrimitive
@@ -89,5 +93,17 @@ object RetrofitClient {
 
     fun getAccountApi(context: Context): AccountApiService =
         getRetrofit(context).create(AccountApiService::class.java)
+
+    fun getCardApi(context: Context): CardApiService =
+        getRetrofit(context).create(CardApiService::class.java)
+
+    fun getPixKeyApi(context: Context): PixKeyApiService =
+        getRetrofit(context).create(PixKeyApiService::class.java)
+
+    fun getTransactionApi(context: Context): TransactionApiService =
+        getRetrofit(context).create(TransactionApiService::class.java)
+
+    fun getStatisticsApi(context: Context): StatisticsApiService =
+        getRetrofit(context).create(StatisticsApiService::class.java)
 
 }

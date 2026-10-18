@@ -2,6 +2,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="4dp"
@@ -12,7 +13,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_card_credit"
         android:orientation="vertical"
-        android:padding="@dimen/space_lg">
+        android:padding="@dimen/space_lg"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +23,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/img_chip"
                 android:layout_width="34dp"
                 android:layout_height="26dp"
                 android:src="@drawable/ic_chip"
@@ -36,9 +39,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_status_active"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
-                android:text="Ativo"
+                android:text="@string/ativo"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -53,24 +57,88 @@
 
             <TextView
                 android:id="@+id/text_card_number"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
                 android:letterSpacing="0.08"
-                android:text="•••• •••• •••• 4821"
+                android:text="@string/_4821"
                 android:textColor="@color/white"
-                android:textSize="19sp"
-                android:fontFamily="monospace" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/btn_toggle_number"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_eye"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="8dp"
                 android:clickable="true"
+                android:contentDescription="@string/toggle_card_number"
                 android:focusable="true"
-                app:tint="@color/silver_pearl"
-                android:contentDescription="toggle_card_number" />
+                android:src="@drawable/ic_eye"
+                app:tint="@color/silver_pearl" />
+
+            <ImageView
+                android:id="@+id/btn_copy_number"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:contentDescription="@string/copy_card_number"
+                android:focusable="true"
+                android:src="@drawable/ic_copy"
+                app:tint="@color/silver_pearl" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                android:text="@string/cvv"
+                android:textColor="@color/silver_pearl"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/text_cvv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:fontFamily="monospace"
+                android:text="@string/pontos"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btn_toggle_cvv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:contentDescription="@string/toggle_cvv"
+                android:focusable="true"
+                android:src="@drawable/ic_eye"
+                app:tint="@color/silver_pearl" />
+
+            <ImageView
+                android:id="@+id/btn_copy_cvv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:contentDescription="@string/copy_cvv"
+                android:focusable="true"
+                android:src="@drawable/ic_copy"
+                app:tint="@color/silver_pearl" />
+
         </LinearLayout>
 
         <View
@@ -81,67 +149,69 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.4"
+                android:layout_weight="1.6"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Titular"
+                    android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                    android:text="@string/titular"
                     android:textColor="@color/silver_pearl"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
 
-                <TextView
-                    android:id="@+id/text_holder_name"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="LUIS GUSTAVO"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_holder_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                        android:text="LUIS GUSTAVO"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/btn_copy_holder"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginStart="6dp"
+                        android:clickable="true"
+                        android:contentDescription="@string/copy_holder_name"
+                        android:focusable="true"
+                        android:src="@drawable/ic_copy"
+                        app:tint="@color/silver_pearl" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_lg"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Validade"
+                    android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                    android:text="@string/validade"
                     android:textColor="@color/silver_pearl"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/text_expiration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="08/29"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CVV"
-                    android:textColor="@color/silver_pearl"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -151,24 +221,26 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/text_cvv"
+                        android:id="@+id/text_expiration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•••"
+                        android:fontFamily="@font/bitcountpropsingle_cursive_regular"
+                        android:text="08/29"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/btn_toggle_cvv"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:id="@+id/btn_copy_expiration"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
                         android:layout_marginStart="6dp"
-                        android:src="@drawable/ic_eye"
                         android:clickable="true"
+                        android:contentDescription="@string/copy_expiration"
                         android:focusable="true"
-                        app:tint="@color/silver_pearl"
-                        android:contentDescription="toggle_cvv" />
+                        android:src="@drawable/ic_copy"
+                        app:tint="@color/silver_pearl" />
+
                 </LinearLayout>
             </LinearLayout>
 
