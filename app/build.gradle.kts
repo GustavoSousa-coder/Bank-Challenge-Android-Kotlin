@@ -71,11 +71,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.4.0")
-    runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
-    runtimeOnly("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.fragment.ktx)
+    runtimeOnly(libs.kotlinx.coroutines.android)
+    runtimeOnly(libs.androidx.lifecycle.runtime.ktx)
 
-    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring (libs.desugar.jdk.libs)
 }

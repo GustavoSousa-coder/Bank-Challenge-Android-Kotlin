@@ -95,6 +95,16 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Determines the next Activity the user should be directed to after a successful login based on their account status.
+     *
+     * This function fetches the accounts associated with the provided client UUID. If an active account
+     * is found, it saves the account ID and directs the user to the [MainActivity]. If no active account
+     * exists, it directs the user to the [AccountSetupActivity] to complete their registration.
+     *
+     * @param clientUuid The unique identifier of the authenticated client.
+     * @return The class of the Activity to navigate to, or `null` if the account information could not be retrieved.
+     */
     private suspend fun destinationAfterLogin(clientUuid: UUID): Class<*>? {
         val response = RetrofitClient.getAccountApi(this).getAllByClientId(clientUuid)
         if (!response.isSuccessful) return null

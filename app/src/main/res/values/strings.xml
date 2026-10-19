@@ -11,6 +11,12 @@
     <string name="button_entrar">Entrar</string>
     <string name="confirmar">Confirmar</string>
 
+    <string name="home_account_format">%1$s / %2$s</string>
+    <string name="home_greeting_format">OLA, %1$s</string>
+    <string name="period_morning">BOM DIA</string>
+    <string name="period_afternoon">BOA TARDE</string>
+    <string name="period_night">BOA NOITE</string>
+
     //--cards
     <string name="toggle_card_number">Mostrar ou ocultar número do cartão</string>
     <string name="copy_card_number">Copiar número do cartão</string>
@@ -48,7 +54,7 @@
 
     <!-- Card de saldo -->
     <string name="balance_label">SALDO DISPONIVEL</string>
-    <string name="balance_value">R$ 4.827,90</string>
+    <string name="balance_value">R$ %2$d</string>
     <string name="balance_hidden">R$ ••••••</string>
     <string name="account_label">CONTA</string>
     <string name="account_value">0001 / 45.892-0</string>
